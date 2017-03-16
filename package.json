@@ -1,0 +1,32 @@
+{
+  "name": "st",
+  "version": "1.0.0",
+  "description": "indra-select",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2FullStacks/systrans"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2FullStacks/systrans/issues"
+  },
+  "homepage": "https://github.com/2FullStacks/systrans#readme",
+  "devDependencies": {
+    "browser-sync": "v2.18.8",
+    "browserify": "v14.1.0",
+    "del": "v2.2.2",
+    "gulp": "v3.9.1",
+    "gulp-concat": "v2.6.1",
+    "gulp-jshint": "v2.0.4",
+    "gulp-ng-annotate": "v2.0.0",
+    "gulp-uglify": "v2.0.1",
+    "gulp-util": "v3.0.8",
+    "jshint": "v2.9.4",
+    "vinyl-source-stream": "v1.1.0"
+  }
+}

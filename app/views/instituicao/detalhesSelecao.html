@@ -1,0 +1,7 @@
+<h2 ng-bind="vm.selecao.programa.nome + ' - ' + vm.selecao.programa.unidade + ' - ' +vm.selecao.programa.dataPrograma"></h2>
+
+<div ng-repeat="(key, value) in vm.selecao.avaliadores">
+    <div ng-repeat="val in value">
+        <p ng-bind="val.nome"></p>
+    </div>
+</div>
