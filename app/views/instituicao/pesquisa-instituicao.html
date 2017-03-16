@@ -1,0 +1,16 @@
+<div class="fixed-action-btn horizontal">
+    <a class="btn-floating btn-large indigo darken-4 waves-effect waves-light" href="#/dashboard-app">
+        <i class="material-icons">reply</i>
+        <md-tooltip md-direction="top">Voltar</md-tooltip>
+    </a>
+</div>
+<st-crud titulo="vm.stService.tituloPaginaPesquisa"
+         tipo="primary"
+         service="vm.stService">
+    <st-crud-body>
+        <div ui-grid="vm.gridOptions"></div>
+    </st-crud-body>
+    <st-crud-footer>
+
+    </st-crud-footer>
+</st-crud>

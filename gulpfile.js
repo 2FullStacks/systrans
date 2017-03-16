@@ -15,18 +15,18 @@ var configFile = './app/env/' + ambiente + '.js';
 
 var path = {
 	VENDOR: [
-		'bower_components/jquery/dist/jquery.min.js',
-		'bower_components/angular/angular.min.js',
-		'bower_components/angular-animate/angular-animate.min.js',
-		'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-		'bower_components/angular-aria/angular-aria.min.js',
-		'bower_components/angular-material/angular-material.min.js',
-		'bower_components/materialize/dist/js/materialize.min.js',
+		'bower_components/jquery/dist/jquery.js',
+		'bower_components/angular/angular.js',
+		'bower_components/angular-animate/angular-animate.js',
+		'bower_components/angular-ui-router/release/angular-ui-router.js',
+		'bower_components/angular-aria/angular-aria.js',
+		'bower_components/angular-material/angular-material.js',
+		'bower_components/materialize/dist/js/materialize.js',
 		'bower_components/angular-material-sidemenu/dest/angular-material-sidemenu.js',
 		'bower_components/firebase/firebase.js',
-		'bower_components/angularfire/dist/angularfire.min.js',
-		'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
-		'bower_components/material-steppers/dist/material-steppers.min.js',
+		'bower_components/angularfire/dist/angularfire.js',
+		'bower_components/angular-local-storage/dist/angular-local-storage.js',
+		'bower_components/material-steppers/dist/material-steppers.js',
 		'bower_components/angular-materialize/src/angular-materialize.js'
 	],
 	APP: [
@@ -37,20 +37,13 @@ var path = {
 		'app/shared/directives/**/*.js',
 		'app/shared/services/is-storage.service.js',
 		'app/shared/services/is-alert.service.js',
-		'app/views/login/login.controller.js',
-		'app/views/selecao/selecao.controller.js',
-		'app/views/selecao/detalhes-selecao.controller.js',
-		'app/views/selecao/selecao.service.js',
 		'app/views/dashboard/dashboard.controller.js',
 		'app/views/dashboard/dashboard.service.js',
-		'app/views/avaliador/avaliador.controller.js',
-		'app/views/avaliador/avaliador.service.js',
-		'app/views/criterio/criterio.controller.js',
-		'app/views/criterio/criterio.service.js',
-		'app/views/candidato/candidato.controller.js',
-		'app/views/candidato/candidato.service.js',
-		'app/views/programa/programa.controller.js',
-		'app/views/programa/programa.service.js'
+		'app/views/aluno/cadastro-aluno.controller.js',
+		'app/views/aluno/aluno.service.js',
+		'app/views/aluno/pesquisa-aluno.controller.js'
+
+
 	],
 	HTML: [
 		'app/**/**/*.json',
@@ -64,7 +57,10 @@ var path = {
 		'bower_components/material-design-icons/iconfont/material-icons.css',
 		'bower_components/materialize/dist/css/materialize.min.css',
 		'bower_components/material-steppers/dist/material-steppers.min.css',
-		'app/assets/css/style.css'
+		'app/assets/css/style.css',
+		'app/views/login/login.style.css',
+		'app/views/dashboard/dashboard.style.css',
+		'app/assets/css/animate.css'
 
 	],
 	ROBOTO: [

@@ -1,33 +1,44 @@
-<div class="main">
-    <div class="row">
-        <div class="col s3">
-            <div class="card-panel white hoverable">
-                . . . .
-            </div>
-        </div>
-        <div class="col s6">
-            <div class="card-panel white hoverable">
-                . .
-            </div>
-        </div>
-        <div class="col s3">
-            <div class="card-panel white hoverable">
-                . . . ..
-            </div>
-        </div>
-        <div class="col s4">
-            <div class="card-panel white hoverable">
-                . . .
-            </div>
-        </div>
-        <div class="col s4">
-            <div class="card-panel white hoverable">
-                . . .
-            </div>
-        </div>
-        <div class="col s4">
-            <div class="card-panel white hoverable">
-                . . .
+<div class="container posicaoCentral">
+    <div class="row ">
+        <div class="col s10 offset-s1 ">
+            <div class="card sticky-action ">
+                <md-toolbar class="md-table-toolbar ">
+                    <div class="md-toolbar-tools indigo darken-4">
+                        <span>Sistema de Controle de Alunos</span>
+                    </div>
+                </md-toolbar>
+                <div class="container padingCentro">
+                    <div class="row">
+                        <div class="col s6">
+                            <img src="../../assets/img/estudante.svg"
+                                 ng-click="vm.alterarRota('cadastroAluno')"
+                                 class="imgMenu animated zoomIn">
+                            <md-tooltip md-direction="top">Cadastro de Alunos</md-tooltip>
+                        </div>
+                        <div class="col s6">
+                            <img src="../../assets/img/busca-aluno.svg"
+                                 ng-click="vm.alterarRota('pesquisaAluno')"
+                                 class="imgMenu animated zoomIn">
+                            <md-tooltip md-direction="top">Pesquisa de Alunos</md-tooltip>
+
+                        </div>
+                        <div class="col s6">
+                            <img src="../../assets/img/universidade.svg"
+                                 ng-click="vm.alterarRota('cadastroInstituicao')"
+                                 class="imgMenu animated zoomIn">
+                            <md-tooltip md-direction="top">Cadastro de Instituicao</md-tooltip>
+
+                        </div>
+                        <div class="col s6">
+                            <img src="../../assets/img/search.svg"
+                                 ng-click="vm.alterarRota('pesquisaInstituicao')"
+                                 class="imgMenu animated zoomIn">
+                            <md-tooltip md-direction="top">Pesquisa de Instituicao</md-tooltip>
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>

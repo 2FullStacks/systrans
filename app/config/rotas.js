@@ -8,22 +8,6 @@
 	/* @ngInject */
 	function config($stateProvider) {
 
-		const other = {
-			name: 'other',
-			url: '/',
-			templateUrl: 'views/login/login.html',
-			controller: 'LoginController',
-			controllerAs: 'vm'
-		};
-
-		const login = {
-			name: 'login',
-			url: '/login',
-			templateUrl: 'views/login/login.html',
-			controller: 'LoginController',
-			controllerAs: 'vm'
-		};
-
 		const dashboard = {
 			name: 'dashboard',
 			url: '/dashboard',
@@ -32,67 +16,45 @@
 			controllerAs: 'vm'
 		};
 
-		const avaliador = {
-			name: 'avaliador',
-			url: '/avaliador',
-			templateUrl: 'views/avaliador/avaliador.html',
-			controller: 'AvaliadorController',
+		const cadastroAluno = {
+			name: 'cadastroAluno',
+			url: '/cadastro-aluno',
+			templateUrl: 'views/aluno/cadastro-aluno.html',
+			controller: 'CadastroAlunoController',
 			controllerAs: 'vm'
 		};
 
-		const criterio = {
-			name: 'criterio',
-			url: '/criterio',
-			templateUrl: 'views/criterio/criterio.html',
-			controller: 'CriterioController',
+		const pesquisaAluno = {
+			name: 'pesquisaAluno',
+			url: '/pesquisa-aluno',
+			templateUrl: 'views/aluno/pesquisa-aluno.html',
+			controller: 'PesquisaAlunoController',
 			controllerAs: 'vm'
 		};
 
-		const candidato = {
-			name: 'candidato',
-			url: '/candidato',
-			templateUrl: 'views/candidato/candidato.html',
-			controller: 'CandidatoController',
+		const cadastroInstituicao = {
+			name: 'cadastroInstituicao',
+			url: '/cadastro-instituicao',
+			templateUrl: 'views/instituicao/cadastro-instituicao.html',
+			controller: 'CadastroInstituicaoController',
 			controllerAs: 'vm'
 		};
 
-		const programa = {
-			name: 'programa',
-			url: '/programa',
-			templateUrl: 'views/programa/programa.html',
-			controller: 'ProgramaController',
+		const pesquisaInstituicao = {
+			name: 'pesquisaInstituicao',
+			url: '/pesquisa-instituicao',
+			templateUrl: 'views/instituicao/pesquisa-instituicao.html',
+			controller: 'PesquisaInstituicaoController',
 			controllerAs: 'vm'
-		};
-
-		const selecao = {
-			name: 'selecao',
-			url: '/selecao',
-			templateUrl: 'views/selecao/selecao.html',
-			controller: 'SelecaoController',
-			controllerAs: 'vm'
-		};
-
-		const detalhesSelecao = {
-			name: 'detalhesSelecao',
-			url: '/detalhesSelecao',
-			templateUrl: 'views/selecao/detalhesSelecao.html',
-			controller: 'DetalhesSelecaoController',
-			controllerAs: 'vm',
-			params: {
-				key: null
-			}
 		};
 
 		$stateProvider
-			.state('other', other)
-			.state('login', login)
 			.state('dashboard', dashboard)
-			.state('avaliador', avaliador)
-			.state('criterio', criterio)
-			.state('candidato', candidato)
-			.state('programa', programa)
-			.state('selecao', selecao)
-			.state('detalhesSelecao', detalhesSelecao);
+			.state('cadastroAluno', cadastroAluno)
+			.state('pesquisaAluno', pesquisaAluno)
+			.state('cadastroInstituicao', cadastroInstituicao)
+			.state('pesquisaInstituicao', pesquisaInstituicao);
+
 	}
 
 })();

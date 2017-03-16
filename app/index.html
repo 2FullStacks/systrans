@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Systrans - Mais um software de 2FullStacks</title>
+    <title>Systrans - Login</title>
 
     <link rel="stylesheet" href="styles.css">
 
@@ -14,65 +14,60 @@
     <script src="app.min.js"></script>
 </head>
 
-<body ng-cloak ng-controller="DashboardController as vm">
+<body ng-cloak ng-controller="DashboardController as vm" class="telaLogin">
 
-<div ng-if="vm.isUsuarioLogado()">
-    <div layout="row" class="blue accent-4" layout-align="space-between center">
-        <div>
-            <md-button class="md-icon-button collapse"
-                       aria-label="Menu Lateral"
-                       ng-click="vm.openSideNavPanel()">
-                <md-tooltip>Menu</md-tooltip>
-                <md-icon class="material-icons white-text">menu</md-icon>
-            </md-button>
+<!--<div  ng-controller="LoginController as vm">-->
+    <!--FundoImg-->
+    <!--Topo-->
+    <br><br><br><br><br><br>
+    <!--Formulario-->
+    <div class="" >
+        <div class="container-fluid " >
+            <div class="rowz-depth-2 ">
+                <div>
+                    <div class="col s12 m12 l12 "  >
+                        <div class="account-wall center-align z-depth-2 " id="loginform" >
+                            <img  src="assets/img/logo.png" alt="" class="img-responsive animated pulse" id="imgLogin">
 
-            <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+                            <br>
+                            <form class="form-signin" action=""  >
 
-                <md-toolbar layout="row" class="blue accent-4 menu-lateral">
-                    <div class="md-toolbar-tools blue accent-4">
-                        <span flex></span>
-                        <md-button class="md-icon-button" aria-label="Fechar Menu Lateral"
-                                   ng-click="vm.closeSideNavPanel()">
-                            <md-tooltip>Fechar</md-tooltip>
-                            <md-icon class="material-icons">close</md-icon>
-                        </md-button>
+                                <div class="input-field col s12 ">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="icon_prefix2"
+                                           type="text"
+                                           class="form-control validate"
+                                           required="required"
+                                           autofocus
+                                           ng-model="user"
+                                    >
+                                    <label for="icon_prefix2" class="left-align">Usuario</label>
+                                </div>
+
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">vpn_key</i>
+                                    <input type="password"
+                                           id="icon_prefix"
+                                           class="form-control validate"
+                                           required="required"
+                                           ng-model="password"
+                                    >
+
+                                    <label for="icon_prefix" class="left-align" >Senha</label>
+                                </div>
+                                <br>
+                                <a class="btn waves-effect waves-light blue darken-3"
+                                   href="app.html"
+                                   role="button">   <i class="material-icons right">send</i>Entrar</a>
+                                <br><br>
+                            </form>
+                        </div>
                     </div>
-                </md-toolbar>
 
-                <md-content>
-                    <md-sidemenu>
-                        <md-subheader>Menu</md-subheader>
-
-                        <md-button ng-click="vm.alterarRota('dashboard')">
-                            <i class="material-icons left">dashboard</i>Menu Principal
-                        </md-button>
-
-                        <md-button ng-click="vm.alterarRota('usuario')">
-                            <i class="material-icons left">create_new_folder</i>Usuários
-                        </md-button>
-
-                        <md-button ng-click="vm.alterarRota('instituicao')">
-                            <i class="material-icons left">spellcheck</i>Instituições
-                        </md-button>
-
-                        <md-button ng-click="vm.alterarRota('contrato')">
-                            <i class="material-icons left">face</i>Contratos
-                        </md-button>
-                    </md-sidemenu>
-                </md-content>
-            </md-sidenav>
-        </div>
-        <div class="nav-buttons">
-            <md-button class="md-icon-button collapse"
-                       aria-label="Menu Lateral"
-                       ng-click="vm.signOut()">
-                <md-tooltip>Sair</md-tooltip>
-                <i class="material-icons white-text">exit_to_app</i>
-            </md-button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<ui-view>
-</ui-view>
+<!--</div>-->
 </body>
 </html>
