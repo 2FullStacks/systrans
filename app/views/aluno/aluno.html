@@ -5,23 +5,22 @@
     </a>
 </div>
 <fs-crud service="vm.alunoService">
-    <fs-crud-body>
-
+    <fs-crud-body >
         <fs-input-text label="Nome"
-                       largura="12"
+                       largura="8"
                        ng-model="vm.alunoService.entidade.nome"
                        ng-required="true">
+        </fs-input-text>
+
+        <fs-input-text label="CPF Responsável"
+                       largura="4"
+                       ng-model="vm.alunoService.entidade.cpfResponsavel"
+                       ng-required="false">
         </fs-input-text>
 
         <fs-input-text label="Responsável"
                        largura="6"
                        ng-model="vm.alunoService.entidade.responsavel"
-                       ng-required="true">
-        </fs-input-text>
-
-        <fs-input-text label="CPF Responsável"
-                       largura="6"
-                       ng-model="vm.alunoService.entidade.cpfResponsavel"
                        ng-required="true">
         </fs-input-text>
 
@@ -75,14 +74,20 @@
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
                                ng-click="vm.alunoService.editar(key)">
-                        <md-tooltip>Editar</md-tooltip>
-                        <a href="#" class="material-icons black-text">edit</a>
+                        <md-tooltip>Editar Aluno</md-tooltip>
+                        <a href="#" class="material-icons blue-grey-text">edit</a>
                     </md-button>
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
                                ng-click="vm.alunoService.eliminar(key)">
-                        <md-tooltip>Eliminar</md-tooltip>
+                        <md-tooltip>Excluir Aluno</md-tooltip>
                         <a href="#" class="material-icons red-text">delete</a>
+                    </md-button>
+                    <md-button class="md-icon-button semEspaco"
+                               aria-label="Fechar"
+                               onclick="Materialize.toast('Gerar Contratro', 4000)">
+                        <md-tooltip>Gerar Contratro</md-tooltip>
+                        <a href="#" class="material-icons light-green-text">assignment</a>
                     </md-button>
                 </td>
             </tr>

@@ -8,9 +8,10 @@
                 <md-button ng-show="service.isListaCarregada() && !!service.listaEntidade" class="md-icon-button collapse right activator"
                            aria-label="Listagem"
                            ng-click="::service.switchCard()">
-                    <md-tooltip>Lista de critérios</md-tooltip>
+                    <md-tooltip>Alunos Cadastrados</md-tooltip>
                     <i class="material-icons right">list</i>
                 </md-button>
+
                 <form novalidate name="formGenerico">
                     <div class="row">
                         <i class="material-icons" ng-bind="::classIcone"></i>
@@ -23,7 +24,7 @@
                                    ng-click="service.salvar()">
                             Salvar
                         </md-button>
-                        <md-button class="md-raised"
+                        <md-button class="md-raised red darken-1 white-text"
                                    ng-click="service.limpar()">
                             Limpar
                         </md-button>

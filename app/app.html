@@ -24,7 +24,9 @@
             <md-icon class="white-text material-icons" >&#xE5D2;</md-icon>
         </md-button>
         <ul class="right hide-on-med-and-down">
-            <li><a href="index.html"><i class="material-icons">exit_to_app</i></a></li>
+            <li><a href="index.html">
+                <md-tooltip>Sair</md-tooltip>
+                <i class="material-icons">exit_to_app</i></a></li>
         </ul>
     </div>
 </nav>
@@ -51,14 +53,10 @@
                 <md-sidemenu-content md-icon="supervisor_account" md-heading="Aluno" md-arrow="true">
                     <md-sidemenu-button ng-click="vm.alterarRota('cadastroAluno')">Cadastro de Aluno
                     </md-sidemenu-button>
-                    <md-sidemenu-button ng-click="vm.alterarRota('pesquisaAluno')">Pesquisar Aluno</md-sidemenu-button>
                 </md-sidemenu-content>
-            </md-sidemenu-group>
-            <md-sidemenu-group>
+
                 <md-sidemenu-content md-icon="account_balance" md-heading="Faculdade" md-arrow="true">
                     <md-sidemenu-button ng-click="vm.alterarRota('cadastroInstituicao')">Cadastro de Faculdade
-                    </md-sidemenu-button>
-                    <md-sidemenu-button ng-click="vm.alterarRota('pesquisaInstituicao')">Pesquisar Faculdade
                     </md-sidemenu-button>
                 </md-sidemenu-content>
             </md-sidemenu-group>

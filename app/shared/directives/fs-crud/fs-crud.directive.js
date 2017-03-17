@@ -27,7 +27,7 @@
 			}
 
 			function definirValoresDefault() {
-				scope.classIcone = scope.classIcone || 'dashboard';
+				scope.classIcone = scope.classIcone || 'assignment_ind';
 			}
 		}
 	}
