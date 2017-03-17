@@ -38,31 +38,33 @@
                 </md-button>
             </div>
         </md-toolbar>
-                <md-sidemenu locked="true">
-                    <md-sidemenu-group>
-                    </md-sidemenu-group>
-                    <md-sidemenu-group>
-                        <md-subheader class="md-no-sticky">Menu</md-subheader>
-                        <md-sidemenu-content ng-click="vm.alterarRota('dashboard')" md-icon="&#xE1AF;" md-heading="Dashboard" >
-                        </md-sidemenu-content>
-                        <md-sidemenu-content md-icon="supervisor_account" md-heading="Aluno" md-arrow="true">
-                            <md-sidemenu-button ng-click="vm.alterarRota('cadastroAluno')">Cadastro de Aluno</md-sidemenu-button>
-                            <md-sidemenu-button ng-click="vm.alterarRota('pesquisaAluno')">Pesquisar Aluno</md-sidemenu-button>
-                        </md-sidemenu-content>
-                    </md-sidemenu-group>
-                    <md-sidemenu-group>
-                        <md-sidemenu-content md-icon="account_balance" md-heading="Faculdade" md-arrow="true">
-                            <md-sidemenu-button ng-click="vm.alterarRota('cadastroInstituicao')">Cadastro de Faculdade</md-sidemenu-button>
-                            <md-sidemenu-button ng-click="vm.alterarRota('pesquisaInstituicao')">Pesquisar Faculdade</md-sidemenu-button>
-                        </md-sidemenu-content>
-                    </md-sidemenu-group>
-                </md-sidemenu>
+        <md-sidemenu locked="true">
+            <md-sidemenu-group>
+            </md-sidemenu-group>
+            <md-sidemenu-group>
+                <md-subheader class="md-no-sticky">Menu</md-subheader>
+                <md-sidemenu-content ng-click="vm.alterarRota('dashboard')" md-icon="&#xE1AF;" md-heading="Dashboard">
+                </md-sidemenu-content>
+                <md-sidemenu-content md-icon="supervisor_account" md-heading="Aluno" md-arrow="true">
+                    <md-sidemenu-button ng-click="vm.alterarRota('cadastroAluno')">Cadastro de Aluno
+                    </md-sidemenu-button>
+                    <md-sidemenu-button ng-click="vm.alterarRota('pesquisaAluno')">Pesquisar Aluno</md-sidemenu-button>
+                </md-sidemenu-content>
+            </md-sidemenu-group>
+            <md-sidemenu-group>
+                <md-sidemenu-content md-icon="account_balance" md-heading="Faculdade" md-arrow="true">
+                    <md-sidemenu-button ng-click="vm.alterarRota('cadastroInstituicao')">Cadastro de Faculdade
+                    </md-sidemenu-button>
+                    <md-sidemenu-button ng-click="vm.alterarRota('pesquisaInstituicao')">Pesquisar Faculdade
+                    </md-sidemenu-button>
+                </md-sidemenu-content>
+            </md-sidemenu-group>
+        </md-sidemenu>
     </md-sidenav>
 </div>
 
 <ui-view>
 </ui-view>
-
 
 </body>
 </html>

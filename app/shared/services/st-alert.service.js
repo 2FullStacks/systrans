@@ -2,9 +2,9 @@
 	'use strict';
 
 	angular.module('st')
-		.service('IsAlertService', IsAlertService);
+		.service('StAlertService', StAlertService);
 
-	function IsAlertService() {
+	function StAlertService() {
 
 		var self = this;
 

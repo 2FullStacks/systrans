@@ -4,12 +4,14 @@
         <md-tooltip md-direction="top">Voltar</md-tooltip>
     </a>
 </div>
+<!--<div class="row">-->
 <st-crud titulo="vm.stService.tituloPaginaCadastro"
-         tipo="primary"
          service="vm.stService">
     <st-crud-body>
 
         <st-input-text label="Nome"
+                       largura="12"
+                       icone="description"
                        ng-model="vm.stService.entidade.nome"
                        ng-required="true">
         </st-input-text>
@@ -40,3 +42,4 @@
         </st-input-text>
     </st-crud-body>
 </st-crud>
+<!--</div>-->

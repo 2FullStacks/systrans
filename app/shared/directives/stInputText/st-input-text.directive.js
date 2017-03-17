@@ -3,14 +3,14 @@
 
 	angular
 		.module('st')
-		.directive('isInputText', isInputText);
+		.directive('stInputText', stInputText);
 
 	/* @ngInject */
-	function isInputText() {
+	function stInputText() {
 		var directive = {
 			restrict: 'E',
 			require: '^form',
-			templateUrl: 'shared/directives/isInputText/is-input-text.template.html',
+			templateUrl: 'shared/directives/stInputText/st-input-text.template.html',
 			link: link,
 			scope: {
 				label: '@',
@@ -26,7 +26,7 @@
 
 		function link($scope, element, attrs, formCtrl) {
 			$scope.formCtrl = formCtrl;
-			$scope.inputName = 'isInputText' + $scope.$id;
+			$scope.inputName = 'stInputText' + $scope.$id;
 			$scope.tipo = $scope.tipo ? $scope.tipo : 'text';
 		}
 	}

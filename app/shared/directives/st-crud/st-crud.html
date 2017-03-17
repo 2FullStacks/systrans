@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col s8 offset-s2">
+        <div class="card white hoverable">
+            <div class="card-content">
+                <form novalidate name="{{formName}}">
+                    <div class="row">
+                        <i ng-class="::classIcone" style="margin-right: 5px"></i>
+                        <span class="card-title" ng-bind="::titulo"></span>
+                        <div ng-transclude="header"></div>
+                        <div ng-transclude="body"></div>
+                    </div>
+                    <div class="card-action">
+                        <md-button class="md-raised md-primary"
+                                   ng-click="service.salvar()">
+                            Salvar
+                        </md-button>
+                        <md-button class="md-raised"
+                                   ng-click="service.limpar()">
+                            Limpar
+                        </md-button>
+                        <md-button class="md-raised md-warn"
+                                   ng-click="service.excluir()">
+                            Excluir
+                        </md-button>
+
+                        <div ng-transclude="footer"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
