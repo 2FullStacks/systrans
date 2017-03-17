@@ -10,11 +10,12 @@
 		this.getFsService = getFsService;
 
 		function getFsService() {
-			var ps = new FsService('CadastroAlunoController');
-			ps.tituloPaginaCadastro = 'Cadastro de aluno';
-			ps.tituloPaginaPesquisa = 'Pesquisa de aluno';
-			ps.nomeKey = 'aluno';
-			return ps;
+			var fs = new FsService();
+			fs.tituloPaginaCadastro = 'Cadastro de aluno';
+			fs.tituloPaginaPesquisa = 'Pesquisa de aluno';
+			fs.entidadeFirebase = 'alunos';
+
+			return fs;
 		}
 
 

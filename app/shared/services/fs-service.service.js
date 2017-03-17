@@ -4,24 +4,19 @@
 	angular.module('st')
 		.service('FsService', FsService);
 
-	function FsService($http) {
-		return function (controller) {
+	function FsService($http, FsAlertService) {
+		return function () {
 			var self = this;
-
-			self.controller = controller;
 
 			self.entidade = {};
 			self.listaEnditade = [];
 			self.provider = [];
 
-			self.metodoSalvar = 'salvar';
-			self.metodoExcluir = 'excluir';
-			self.metodoPesquisar = 'pesquisar';
-
 			self.salvar = salvar;
-			self.excluir = excluir;
+			self.eliminar = eliminar;
 			self.limpar = limpar;
-			self.pesquisar = pesquisar;
+			self.listar = listar;
+			self.editar = editar;
 			self.switchCard = switchCard;
 
 			init();
@@ -45,57 +40,57 @@
 						.ref()
 						.child(self.entidadeFirebase + '/' + self.entidade.key)
 						.set(self.entidade)
-						.then(function () {
-							return true;
-						});
+						.then(success);
 				} else {
 					return firebase.database()
 						.ref()
 						.child(self.entidadeFirebase)
 						.push(self.entidade)
-						.then(function (result) {
-							return !!result.key;
-						});
+						.then(success);
 				}
-				// return $http.post('rest/' + self.controller + '/' +
-				// 	self.metodoSalvar, self.entidade)
-				// 	.then(salvarResult);
-				//
-				// function salvarResult(response) {
-				// 	self.entidade = response.data;
-				//
-				// 	StAlertService.showSuccess('Registro salvo com sucesso!');
-				//
-				// 	return response.data;
-				// }
+
+				function success(result) {
+					FsAlertService.showSuccess('Registro salvo com sucesso!');
+					limpar();
+					listar();
+					self.postSalvar();
+					return !!result.key;
+				}
 			}
 
-			function excluir() {
-				return $http.delete('rest/' + self.controller + '/' + self.metodoExcluir + '/' + self.entidade.id)
-					.then(excluirResult);
+			function eliminar(key) {
+				return firebase.database()
+					.ref(self.entidadeFirebase)
+					.child(key)
+					.remove()
+					.then(function () {
+						listar();
+						if (Object.keys(self.listaEnditade).length <= 1) {
+							self.switchCard();
+						}
+						FsAlertService.showSuccess('Registro eliminado !');
+						return true;
+					});
+			}
 
-				function excluirResult(response) {
-					StAlertService.showSuccess('Registro excluido com sucesso!');
+			function listar() {
+				return firebase.database()
+					.ref()
+					.child(self.entidadeFirebase)
+					.once('value')
+					.then(function (response) {
+						self.listaEnditade = response.val();
+					});
+			}
 
-					limpar();
-
-					return response.data;
-				}
+			function editar(key) {
+				self.entidade = self.listaEnditade[key];
+				self.entidade.key = key;
+				self.switchCard();
 			}
 
 			function limpar() {
 				self.entidade = {};
-			}
-
-			function pesquisar() {
-				return $http.post('rest/' + self.controller + '/' + self.metodoPesquisar, self.entidade)
-					.then(pesquisarResult);
-
-				function pesquisarResult(response) {
-					self.provider = response.data;
-
-					return response.data;
-				}
 			}
 
 			function switchCard() {

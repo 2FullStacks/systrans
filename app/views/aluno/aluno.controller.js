@@ -6,22 +6,21 @@
 		.controller('AlunoController', AlunoController);
 
 	/* @ngInject */
-	function AlunoController(AlunoService) {
+	function AlunoController(AlunoService, $scope) {
 		var vm = this;
 
 		vm.fsService = AlunoService.getFsService();
 
-		vm.fsService.preSalvar = preSalvar;
 		vm.fsService.postSalvar = postSalvar;
 
-		vm.fsService.entidadeFirebase = 'alunos';
+		init();
 
-		function preSalvar() {
-			console.log('Faz alguma coisa antes de salvar')
+		function init() {
+			vm.fsService.listar();
 		}
 
 		function postSalvar() {
-			console.log('Faz alguma coisa depois de salvar');
+			$scope.$applyAsync();
 		}
 	}
 

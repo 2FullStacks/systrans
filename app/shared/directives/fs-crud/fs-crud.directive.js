@@ -9,7 +9,6 @@
 			restrict: 'E',
 			scope: {
 				classIcone: '@',
-				titulo: '=',
 				service: '='
 			},
 			transclude: {
@@ -24,19 +23,11 @@
 		function link(scope) {
 			iniciar();
 			function iniciar() {
-				verificarParametrosNaoInformado();
 				definirValoresDefault();
 			}
 
-			function verificarParametrosNaoInformado() {
-				if (!scope.titulo) {
-					$log.error('Atenção: Não foi informado o título do crud');
-				}
-			}
-
 			function definirValoresDefault() {
-				scope.formName = 'fsForm' + scope.$id;
-				scope.classIcone = scope.classIcone || 'fa fa-edit';
+				scope.classIcone = scope.classIcone || 'dashboard';
 			}
 		}
 	}

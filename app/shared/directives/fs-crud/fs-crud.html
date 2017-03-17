@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col s8 offset-s2">
+    <div class="col s12">
         <div class="card white hoverable">
             <div class="card-content">
                 <div class="progress">
@@ -7,19 +7,19 @@
                 </div>
                 <md-button class="md-icon-button collapse right activator"
                            aria-label="Listagem"
-                           ng-click="service.switchCard()">
+                           ng-click="::service.switchCard()">
                     <md-tooltip>Lista de critérios</md-tooltip>
                     <i class="material-icons right">list</i>
                 </md-button>
-                <form novalidate name="{{formName}}">
+                <form novalidate name="formGenerico">
                     <div class="row">
-                        <i ng-class="::classIcone" style="margin-right: 5px"></i>
-                        <span class="card-title" ng-bind="::titulo"></span>
+                        <i class="material-icons" ng-bind="::classIcone"></i>
+                        <span class="card-title" ng-bind="::service.tituloPaginaCadastro"></span>
                         <div ng-transclude="header"></div>
                         <div ng-transclude="body"></div>
                     </div>
                     <div class="card-action">
-                        <md-button class="md-raised md-primary"
+                        <md-button ng-disabled="formGenerico.$invalid" class="md-raised md-primary"
                                    ng-click="service.salvar()">
                             Salvar
                         </md-button>
@@ -27,25 +27,26 @@
                                    ng-click="service.limpar()">
                             Limpar
                         </md-button>
-                        <md-button class="md-raised md-warn"
-                                   ng-click="service.excluir()">
-                            Excluir
-                        </md-button>
 
                         <div ng-transclude="footer"></div>
                     </div>
                 </form>
             </div>
             <div class="card-reveal">
-                <md-button class="md-icon-button collapse right"
-                           aria-label="Fechar"
-                           ng-click="service.switchCard()">
-                    <md-tooltip>Fechar</md-tooltip>
-                    <i class="material-icons right">close</i>
-                </md-button>
+                <div class="card-content">
+                    <div class="row">
+                        <md-button class="md-icon-button collapse right"
+                                   aria-label="Fechar"
+                                   ng-click="::service.switchCard()">
+                            <md-tooltip>Fechar</md-tooltip>
+                            <i class="material-icons right">close</i>
+                        </md-button>
 
-                <span class="card-title">Listagem</span>
-                <div ng-transclude="list"></div>
+                        <i class="material-icons left" ng-bind="::classIcone"></i>
+                        <span class="card-title " ng-bind="::service.tituloPaginaPesquisa"></span>
+                        <div ng-transclude="list"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

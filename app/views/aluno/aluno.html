@@ -4,8 +4,7 @@
         <md-tooltip md-direction="top">Voltar</md-tooltip>
     </a>
 </div>
-<fs-crud titulo="vm.fsService.tituloPaginaCadastro"
-         service="vm.fsService">
+<fs-crud service="vm.fsService">
     <fs-crud-body>
 
         <fs-input-text label="Nome"
@@ -46,29 +45,33 @@
         </fs-input-text>
     </fs-crud-body>
     <fs-list>
-        <table class="highlight separador">
+        <table class="highlight">
             <thead>
             <tr>
-                <th data-field="descricao" class="col l5 m4 s4">Descrição</th>
-                <th data-field="tipo" class="col l4 m4 s4">Tipo</th>
-                <th data-field="acoes" class="col l3 m4 s4 center">Ações</th>
+                <th data-field="descricao" class="col l3 m3 s3">Nome</th>
+                <th data-field="tipo" class="col l3 m3 s3">Instituição</th>
+                <th data-field="tipo" class="col l2 m2 s2">Turno</th>
+                <th data-field="tipo" class="col l2 m2 s2">Telefone</th>
+                <th data-field="acoes" class="col l2 m2 s2 center">Ações</th>
             </tr>
             </thead>
 
             <tbody>
-            <tr ng-repeat="(key, value) in vm.criterios">
-                <td class="col l5 m4 s4">{{value.descricao}}</td>
-                <td class="col l4 m4 s4">{{value.tipo}}</td>
-                <td class="col l3 m4 s4 center">
+            <tr ng-repeat="(key, value) in vm.fsService.listaEnditade">
+                <td class="col l3 m3 s3">{{value.nome}}</td>
+                <td class="col l3 m3 s3">{{value.instituicao}}</td>
+                <td class="col l2 m2 s2">{{value.turno}}</td>
+                <td class="col l2 m2 s2">{{value.telefone}}</td>
+                <td class="col l2 m2 s2 center">
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
-                               ng-click="vm.editar(key)">
+                               ng-click="vm.fsService.editar(key)">
                         <md-tooltip>Editar</md-tooltip>
                         <a href="#" class="material-icons black-text">edit</a>
                     </md-button>
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
-                               ng-click="vm.eliminar(key)">
+                               ng-click="vm.fsService.eliminar(key)">
                         <md-tooltip>Eliminar</md-tooltip>
                         <a href="#" class="material-icons red-text">delete</a>
                     </md-button>
