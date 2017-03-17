@@ -9,55 +9,17 @@
 
         <fs-input-text label="Nome"
                        largura="12"
+                       icone="description"
                        ng-model="vm.fsService.entidade.nome"
                        ng-required="true">
         </fs-input-text>
 
-        <fs-input-text label="Responsável"
-                       largura="6"
-                       ng-model="vm.fsService.entidade.responsavel"
-                       ng-required="true">
-        </fs-input-text>
-
-        <fs-input-text label="CPF Responsável"
-                       largura="6"
-                       ng-model="vm.fsService.entidade.cpfResponsavel"
-                       ng-required="true">
-        </fs-input-text>
-
-        <fs-input-text label="Telefone"
-                       largura="6"
-                       ng-model="vm.fsService.entidade.telefone"
-                       ng-required="true">
-        </fs-input-text>
-
-        <fs-input-text label="Instituição"
-                       largura="6"
-                       ng-model="vm.fsService.entidade.instituicao"
-                       ng-required="true">
-        </fs-input-text>
-
-        <fs-input-text label="Turno"
-                       largura="6"
-                       ng-model="vm.fsService.entidade.turno"
-                       ng-required="true">
-        </fs-input-text>
-
-        <fs-select largura="6"
-                   ng-model="vm.criterio.tipo"
-                   lista="['Matutino', 'Vespertino', 'Noturno']"
-                   ng-required="true"
-                   mensagem="Período">
-        </fs-select>
     </fs-crud-body>
     <fs-list>
         <table class="highlight">
             <thead>
             <tr>
                 <th data-field="descricao" class="col l3 m3 s3">Nome</th>
-                <th data-field="tipo" class="col l3 m3 s3">Instituição</th>
-                <th data-field="tipo" class="col l2 m2 s2">Turno</th>
-                <th data-field="tipo" class="col l2 m2 s2">Telefone</th>
                 <th data-field="acoes" class="col l2 m2 s2 center">Ações</th>
             </tr>
             </thead>
@@ -65,9 +27,6 @@
             <tbody>
             <tr ng-repeat="(key, value) in vm.fsService.listaEntidade">
                 <td class="col l3 m3 s3">{{value.nome}}</td>
-                <td class="col l3 m3 s3">{{value.instituicao}}</td>
-                <td class="col l2 m2 s2">{{value.turno}}</td>
-                <td class="col l2 m2 s2">{{value.telefone}}</td>
                 <td class="col l2 m2 s2 center">
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"

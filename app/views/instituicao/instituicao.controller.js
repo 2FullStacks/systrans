@@ -3,13 +3,13 @@
 
 	angular
 		.module('st')
-		.controller('AlunoController', AlunoController);
+		.controller('InstituicaoController', InstituicaoController);
 
 	/* @ngInject */
-	function AlunoController(AlunoService, $scope) {
+	function InstituicaoController(InstituicaoService, $scope) {
 		var vm = this;
 
-		vm.fsService = AlunoService.getFsService();
+		vm.fsService = InstituicaoService.getFsService();
 
 		vm.fsService.reload = reload;
 

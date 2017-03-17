@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('stApp')
+		.module('st')
 		.service('InstituicaoService', InstituicaoService);
 
 	/* @ngInject */
@@ -10,11 +10,16 @@
 		this.getFsService = getFsService;
 
 		function getFsService() {
-			var ps = new FsService('CadastroInstituicaoController');
-			ps.tituloPaginaCadastro = "Cadastro de instituição";
-			ps.tituloPaginaPesquisa = "Pesquisa de instituição";
-			ps.nomeKey = 'instituicao';
-			return ps;
+			var fs = new FsService();
+			fs.tituloPaginaCadastro = 'Cadastro de instituição';
+			fs.tituloPaginaPesquisa = 'Pesquisa de instituição';
+			fs.entidadeFirebase = 'instituicoes';
+
+			return fs;
 		}
+
+
 	}
+
 })();
+

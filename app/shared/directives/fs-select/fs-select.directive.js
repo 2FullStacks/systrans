@@ -10,10 +10,9 @@
 		var directive = {
 			restrict: 'E',
 			require: '^form',
-			templateUrl: 'shared/directives/fsSelect/fs-select.template.html',
+			templateUrl: 'shared/directives/fs-select/fs-select.template.html',
 			link: link,
 			scope: {
-				label: '@',
 				largura: '@',
 				icone: '@',
 				tamanhoIcone: '@',
@@ -50,4 +49,3 @@
 	}
 
 })();
-

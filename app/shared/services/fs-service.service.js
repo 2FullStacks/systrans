@@ -9,8 +9,9 @@
 			var self = this;
 
 			self.entidade = {};
-			self.listaEnditade = [];
+			self.listaEntidade = [];
 			self.provider = [];
+			self.listaEnditadeCarregada = false;
 
 			self.salvar = salvar;
 			self.eliminar = eliminar;
@@ -18,6 +19,7 @@
 			self.listar = listar;
 			self.editar = editar;
 			self.switchCard = switchCard;
+			self.isListaCarregada = isListaCarregada;
 
 			init();
 
@@ -53,7 +55,7 @@
 					FsAlertService.showSuccess('Registro salvo com sucesso!');
 					limpar();
 					listar();
-					self.postSalvar();
+					self.reload();
 					return !!result.key;
 				}
 			}
@@ -65,7 +67,7 @@
 					.remove()
 					.then(function () {
 						listar();
-						if (Object.keys(self.listaEnditade).length <= 1) {
+						if (Object.keys(self.listaEntidade).length <= 1) {
 							self.switchCard();
 						}
 						FsAlertService.showSuccess('Registro eliminado !');
@@ -79,12 +81,14 @@
 					.child(self.entidadeFirebase)
 					.once('value')
 					.then(function (response) {
-						self.listaEnditade = response.val();
+						self.listaEnditadeCarregada = true;
+						self.listaEntidade = response.val();
+						self.reload();
 					});
 			}
 
 			function editar(key) {
-				self.entidade = self.listaEnditade[key];
+				self.entidade = self.listaEntidade[key];
 				self.entidade.key = key;
 				self.switchCard();
 			}
@@ -96,6 +100,10 @@
 			function switchCard() {
 				self.cardReveal = $('.card-reveal .card-title') ? $('.card-reveal .card-title') : $('.card .activator');
 				self.cardReveal.click();
+			}
+
+			function isListaCarregada() {
+				return self.listaEnditadeCarregada;
 			}
 
 		};

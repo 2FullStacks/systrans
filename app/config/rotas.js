@@ -24,27 +24,18 @@
 			controllerAs: 'vm'
 		};
 
-		const cadastroInstituicao = {
-			name: 'cadastroInstituicao',
-			url: '/cadastro-instituicao',
-			templateUrl: 'views/instituicao/cadastro-instituicao.html',
-			controller: 'CadastroInstituicaoController',
-			controllerAs: 'vm'
-		};
-
-		const pesquisaInstituicao = {
-			name: 'pesquisaInstituicao',
-			url: '/pesquisa-instituicao',
-			templateUrl: 'views/instituicao/pesquisa-instituicao.html',
-			controller: 'PesquisaInstituicaoController',
+		const instituicao = {
+			name: 'instituicao',
+			url: '/instituicao-instituicao',
+			templateUrl: 'views/instituicao/instituicao.html',
+			controller: 'InstituicaoController',
 			controllerAs: 'vm'
 		};
 
 		$stateProvider
 			.state('dashboard', dashboard)
 			.state('aluno', aluno)
-			.state('cadastroInstituicao', cadastroInstituicao)
-			.state('pesquisaInstituicao', pesquisaInstituicao);
+			.state('instituicao', instituicao);
 
 	}
 

@@ -1,32 +1,12 @@
-<i ng-if="icone" class="material-icons prefix">{{::icone}}</i>
-<select class=""
-        id="{{selectName}}"
-        name="{{selectName}}"
-        ng-model="ngModel"
-        material-select
-        watch>
-    <option value=""
-            disabled selected>{{::mensagem}}
-    </option>
-    <option ng-repeat="(k, v) in getLista() track by $index"
-            ng-value="keyAsValue ? k : v[show] ? v[show] : v">
-        {{v[show] ? v[show] : v}}
-    </option>
-</select>
-</div>
-
-<div class="input-field col s{{largura}}">
-    <ul class="collection" ng-repeat="avaliador in vm.listaAvaliadores">
-        <li class="collection-item avatar ">
-            <i class="material-icons circle">account_circle</i>
-            <span class="title" ng-bind="avaliador.nome"></span>
-            <p ng-bind="avaliador.funcao"></p>
-            <p class="secondary-content">
-                <input type="checkbox"
-                       ng-click="vm.addAvaliador(avaliador)"
-                       id="{{avaliador+$index}}"/>
-                <label for="{{avaliador+$index}}"></label>
-            </p>
-        </li>
-    </ul>
+<div class="input-field col s{{::largura}}">
+    <i ng-show="icone" class="material-icons prefix">{{::icone}}</i>
+    <select id="{{selectName}}"
+            name="{{selectName}}" class="" ng-model="ngModel" material-select watch>
+        <option value=""
+                disabled selected>{{::mensagem}}
+        </option>
+        <option ng-repeat="(k, v) in getLista() track by $index"
+                ng-value="keyAsValue ? k : v[show] ? v[show] : v">{{v[show] ? v[show] : v}}
+        </option>
+    </select>
 </div>
