@@ -4,42 +4,45 @@
         <md-tooltip md-direction="top">Voltar</md-tooltip>
     </a>
 </div>
-<!--<div class="row">-->
-<st-crud titulo="vm.stService.tituloPaginaCadastro"
-         service="vm.stService">
-    <st-crud-body>
+<fs-crud titulo="vm.fsService.tituloPaginaCadastro"
+         service="vm.fsService">
+    <fs-crud-body>
 
-        <st-input-text label="Nome"
+        <fs-input-text label="Nome"
                        largura="12"
                        icone="description"
-                       ng-model="vm.stService.entidade.nome"
+                       ng-model="vm.fsService.entidade.nome"
                        ng-required="true">
-        </st-input-text>
+        </fs-input-text>
 
-        <st-input-text label="Responsável"
-                       ng-model="vm.stService.entidade.responsavel"
+        <fs-input-text label="Responsável"
+                       largura="6"
+                       ng-model="vm.fsService.entidade.responsavel"
                        ng-required="true">
-        </st-input-text>
+        </fs-input-text>
 
-        <st-input-text label="CPF Responsável"
-                       ng-model="vm.stService.entidade.cpfResponsavel"
+        <fs-input-text label="CPF Responsável"
+                       largura="6"
+                       ng-model="vm.fsService.entidade.cpfResponsavel"
                        ng-required="true">
-        </st-input-text>
+        </fs-input-text>
 
-        <st-input-text label="Telefone"
-                       ng-model="vm.stService.entidade.telefone"
+        <fs-input-text label="Telefone"
+                       largura="6"
+                       ng-model="vm.fsService.entidade.telefone"
                        ng-required="true">
-        </st-input-text>
+        </fs-input-text>
 
-        <st-input-text label="Instituição"
-                       ng-model="vm.stService.entidade.instituicao"
+        <fs-input-text label="Instituição"
+                       largura="6"
+                       ng-model="vm.fsService.entidade.instituicao"
                        ng-required="true">
-        </st-input-text>
+        </fs-input-text>
 
-        <st-input-text label="Turno"
-                       ng-model="vm.stService.entidade.turno"
+        <fs-input-text label="Turno"
+                       largura="6"
+                       ng-model="vm.fsService.entidade.turno"
                        ng-required="true">
-        </st-input-text>
-    </st-crud-body>
-</st-crud>
-<!--</div>-->
+        </fs-input-text>
+    </fs-crud-body>
+</fs-crud>

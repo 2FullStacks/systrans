@@ -9,10 +9,10 @@
 	function CadastroAlunoController(AlunoService) {
 		var vm = this;
 
-		vm.stService = AlunoService.getStService();
+		vm.fsService = AlunoService.getFsService();
 
-		vm.stService.preSalvar = preSalvar;
-		vm.stService.postSalvar = postSalvar;
+		vm.fsService.preSalvar = preSalvar;
+		vm.fsService.postSalvar = postSalvar;
 
 		function preSalvar() {
 			console.log('Faz alguma coisa antes de salvar')

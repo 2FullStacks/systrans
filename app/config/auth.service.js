@@ -7,7 +7,7 @@
 		.service('AuthService', AuthService);
 
 	/* @ngInject */
-	function AuthService(StStorageService) {
+	function AuthService(FsStorageService) {
 
 		var self = this;
 
@@ -46,7 +46,7 @@
 			firebaseIsInitialized();
 			return firebase.auth().signInWithEmailAndPassword(email, senha)
 				.then(function (firebaseUser) {
-					StStorageService.set('usuarioLogado', firebaseUser);
+					FsStorageService.set('usuarioLogado', firebaseUser);
 					console.log('Logado com sucesso: ' + firebaseUser);
 					return firebaseUser;
 				})
@@ -61,7 +61,7 @@
 			return firebase.auth().signOut()
 				.then(function () {
 					console.log('Sessão finalizada com sucesso');
-					StStorageService.remover('usuarioLogado');
+					FsStorageService.remover('usuarioLogado');
 					return true;
 				}, function (error) {
 					return error;
@@ -69,7 +69,7 @@
 		}
 
 		function isUsuarioLogado() {
-			return !!StStorageService.get('usuarioLogado');
+			return !!FsStorageService.get('usuarioLogado');
 		}
 
 		function verificarToken() {

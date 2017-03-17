@@ -2,9 +2,9 @@
 	'use strict';
 
 	angular.module('st')
-		.service('StAlertService', StAlertService);
+		.service('FsAlertService', FsAlertService);
 
-	function StAlertService() {
+	function FsAlertService() {
 
 		var self = this;
 

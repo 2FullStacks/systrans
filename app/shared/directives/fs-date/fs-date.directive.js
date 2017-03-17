@@ -3,14 +3,14 @@
 
 	angular
 		.module('st')
-		.directive('isDate', isDate);
+		.directive('fsDate', fsDate);
 
 	/* @ngInject */
-	function isDate() {
+	function fsDate() {
 		var directive = {
 			restrict: 'E',
 			require: '^form',
-			templateUrl: 'shared/directives/isDate/is-date.template.html',
+			templateUrl: 'shared/directives/fsDate/fs-date.template.html',
 			link: link,
 			scope: {
 				label: '@',
@@ -26,7 +26,7 @@
 			var currentTime = new Date();
 
 			$scope.formCtrl = formCtrl;
-			$scope.dateName = 'isDate' + $scope.$id;
+			$scope.dateName = 'fsDate' + $scope.$id;
 			$scope.largura = $scope.largura ? $scope.largura : '12';
 			$scope.tamanhoIcone = $scope.tamanhoIcone ? $scope.tamanhoIcone : '48';
 

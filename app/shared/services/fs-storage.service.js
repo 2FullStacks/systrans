@@ -3,10 +3,10 @@
 
 	angular
 		.module('st')
-		.service('StStorageService', StStorageService);
+		.service('FsStorageService', FsStorageService);
 
 	/* @ngInject */
-	function StStorageService(localStorageService) {
+	function FsStorageService(localStorageService) {
 
 		this.isNavegadorSuportaStorage = isNavegadorSuportaStorage;
 		this.set = set;

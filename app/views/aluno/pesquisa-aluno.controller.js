@@ -9,16 +9,16 @@
 	function PesquisaAlunoController(AlunoService) {
 		var vm = this;
 
-		vm.stService = AlunoService.getStService();
+		vm.fsService = AlunoService.getFsService();
 
 		init();
 
 		vm.gridOptions = {
-			data: vm.stService.entidades
+			data: vm.fsService.entidades
 		};
 
 		function init() {
-			vm.stService.listar();
+			vm.fsService.listar();
 		}
 	}
 
