@@ -3,16 +3,18 @@
 
 	angular
 		.module('st')
-		.controller('CadastroAlunoController', CadastroAlunoController);
+		.controller('AlunoController', AlunoController);
 
 	/* @ngInject */
-	function CadastroAlunoController(AlunoService) {
+	function AlunoController(AlunoService) {
 		var vm = this;
 
 		vm.fsService = AlunoService.getFsService();
 
 		vm.fsService.preSalvar = preSalvar;
 		vm.fsService.postSalvar = postSalvar;
+
+		vm.fsService.entidadeFirebase = 'alunos';
 
 		function preSalvar() {
 			console.log('Faz alguma coisa antes de salvar')

@@ -2,6 +2,15 @@
     <div class="col s8 offset-s2">
         <div class="card white hoverable">
             <div class="card-content">
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+                <md-button class="md-icon-button collapse right activator"
+                           aria-label="Listagem"
+                           ng-click="service.switchCard()">
+                    <md-tooltip>Lista de critérios</md-tooltip>
+                    <i class="material-icons right">list</i>
+                </md-button>
                 <form novalidate name="{{formName}}">
                     <div class="row">
                         <i ng-class="::classIcone" style="margin-right: 5px"></i>
@@ -26,6 +35,17 @@
                         <div ng-transclude="footer"></div>
                     </div>
                 </form>
+            </div>
+            <div class="card-reveal">
+                <md-button class="md-icon-button collapse right"
+                           aria-label="Fechar"
+                           ng-click="service.switchCard()">
+                    <md-tooltip>Fechar</md-tooltip>
+                    <i class="material-icons right">close</i>
+                </md-button>
+
+                <span class="card-title">Listagem</span>
+                <div ng-transclude="list"></div>
             </div>
         </div>
     </div>

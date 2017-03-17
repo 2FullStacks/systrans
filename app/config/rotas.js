@@ -16,19 +16,11 @@
 			controllerAs: 'vm'
 		};
 
-		const cadastroAluno = {
-			name: 'cadastroAluno',
-			url: '/cadastro-aluno',
-			templateUrl: 'views/aluno/cadastro-aluno.html',
-			controller: 'CadastroAlunoController',
-			controllerAs: 'vm'
-		};
-
-		const pesquisaAluno = {
-			name: 'pesquisaAluno',
-			url: '/pesquisa-aluno',
-			templateUrl: 'views/aluno/pesquisa-aluno.html',
-			controller: 'PesquisaAlunoController',
+		const aluno = {
+			name: 'aluno',
+			url: '/aluno',
+			templateUrl: 'views/aluno/aluno.html',
+			controller: 'AlunoController',
 			controllerAs: 'vm'
 		};
 
@@ -50,8 +42,7 @@
 
 		$stateProvider
 			.state('dashboard', dashboard)
-			.state('cadastroAluno', cadastroAluno)
-			.state('pesquisaAluno', pesquisaAluno)
+			.state('aluno', aluno)
 			.state('cadastroInstituicao', cadastroInstituicao)
 			.state('pesquisaInstituicao', pesquisaInstituicao);
 

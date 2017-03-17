@@ -40,9 +40,8 @@ var path = {
 		'app/shared/services/fs-service.service.js',
 		'app/views/dashboard/dashboard.controller.js',
 		'app/views/dashboard/dashboard.service.js',
-		'app/views/aluno/cadastro-aluno.controller.js',
-		'app/views/aluno/aluno.service.js',
-		'app/views/aluno/pesquisa-aluno.controller.js'
+		'app/views/aluno/aluno.controller.js',
+		'app/views/aluno/aluno.service.js'
 
 
 	],

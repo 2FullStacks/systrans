@@ -26,11 +26,11 @@
 
 		function conectaFirebase() {
 			var config = {
-				apiKey: 'AIzaSyCJLevWzCw8cChGdAe9_cuycGZ6qkpdWvU',
-				authDomain: 'indra-select.firebaseapp.com',
-				databaseURL: 'https://indra-select.firebaseio.com',
-				storageBucket: 'indra-select.appspot.com',
-				messagingSenderId: '860954589175'
+				apiKey: 'AIzaSyDpYQAnJfFD1TNXa1NvSVAs7lYwpCPU2yI',
+				authDomain: 'fs-systrans.firebaseapp.com',
+				databaseURL: 'https://fs-systrans.firebaseio.com',
+				storageBucket: 'fs-systrans.appspot.com',
+				messagingSenderId: '115216480927'
 			};
 			firebase.initializeApp(config);
 		}

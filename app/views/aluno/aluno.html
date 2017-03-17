@@ -45,4 +45,36 @@
                        ng-required="true">
         </fs-input-text>
     </fs-crud-body>
+    <fs-list>
+        <table class="highlight separador">
+            <thead>
+            <tr>
+                <th data-field="descricao" class="col l5 m4 s4">Descrição</th>
+                <th data-field="tipo" class="col l4 m4 s4">Tipo</th>
+                <th data-field="acoes" class="col l3 m4 s4 center">Ações</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="(key, value) in vm.criterios">
+                <td class="col l5 m4 s4">{{value.descricao}}</td>
+                <td class="col l4 m4 s4">{{value.tipo}}</td>
+                <td class="col l3 m4 s4 center">
+                    <md-button class="md-icon-button semEspaco"
+                               aria-label="Fechar"
+                               ng-click="vm.editar(key)">
+                        <md-tooltip>Editar</md-tooltip>
+                        <a href="#" class="material-icons black-text">edit</a>
+                    </md-button>
+                    <md-button class="md-icon-button semEspaco"
+                               aria-label="Fechar"
+                               ng-click="vm.eliminar(key)">
+                        <md-tooltip>Eliminar</md-tooltip>
+                        <a href="#" class="material-icons red-text">delete</a>
+                    </md-button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </fs-list>
 </fs-crud>
