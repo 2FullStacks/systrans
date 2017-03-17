@@ -4,47 +4,50 @@
         <md-tooltip md-direction="top">Voltar</md-tooltip>
     </a>
 </div>
-<fs-crud service="vm.fsService">
+<fs-crud service="vm.alunoService">
     <fs-crud-body>
 
         <fs-input-text label="Nome"
                        largura="12"
-                       ng-model="vm.fsService.entidade.nome"
+                       ng-model="vm.alunoService.entidade.nome"
                        ng-required="true">
         </fs-input-text>
 
         <fs-input-text label="Responsável"
                        largura="6"
-                       ng-model="vm.fsService.entidade.responsavel"
+                       ng-model="vm.alunoService.entidade.responsavel"
                        ng-required="true">
         </fs-input-text>
 
         <fs-input-text label="CPF Responsável"
                        largura="6"
-                       ng-model="vm.fsService.entidade.cpfResponsavel"
+                       ng-model="vm.alunoService.entidade.cpfResponsavel"
                        ng-required="true">
         </fs-input-text>
 
         <fs-input-text label="Telefone"
                        largura="6"
-                       ng-model="vm.fsService.entidade.telefone"
+                       ng-model="vm.alunoService.entidade.telefone"
                        ng-required="true">
         </fs-input-text>
 
         <fs-input-text label="Instituição"
                        largura="6"
-                       ng-model="vm.fsService.entidade.instituicao"
-                       ng-required="true">
-        </fs-input-text>
-
-        <fs-input-text label="Turno"
-                       largura="6"
-                       ng-model="vm.fsService.entidade.turno"
+                       ng-model="vm.alunoService.entidade.instituicao"
                        ng-required="true">
         </fs-input-text>
 
         <fs-select largura="6"
-                   ng-model="vm.criterio.tipo"
+                   ng-model="vm.alunoService.entidade.instituicao"
+                   function="vm.instituicaoService.listarWithPromise"
+                   ng-required="true"
+                   show="nome"
+                   key-as-value="true"
+                   mensagem="Instituição">
+        </fs-select>
+
+        <fs-select largura="6"
+                   ng-model="vm.alunoService.entidade.turno"
                    lista="['Matutino', 'Vespertino', 'Noturno']"
                    ng-required="true"
                    mensagem="Período">
@@ -63,7 +66,7 @@
             </thead>
 
             <tbody>
-            <tr ng-repeat="(key, value) in vm.fsService.listaEntidade">
+            <tr ng-repeat="(key, value) in vm.alunoService.listaEntidade">
                 <td class="col l3 m3 s3">{{value.nome}}</td>
                 <td class="col l3 m3 s3">{{value.instituicao}}</td>
                 <td class="col l2 m2 s2">{{value.turno}}</td>
@@ -71,13 +74,13 @@
                 <td class="col l2 m2 s2 center">
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
-                               ng-click="vm.fsService.editar(key)">
+                               ng-click="vm.alunoService.editar(key)">
                         <md-tooltip>Editar</md-tooltip>
                         <a href="#" class="material-icons black-text">edit</a>
                     </md-button>
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
-                               ng-click="vm.fsService.eliminar(key)">
+                               ng-click="vm.alunoService.eliminar(key)">
                         <md-tooltip>Eliminar</md-tooltip>
                         <a href="#" class="material-icons red-text">delete</a>
                     </md-button>

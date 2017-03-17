@@ -17,6 +17,7 @@
 			self.eliminar = eliminar;
 			self.limpar = limpar;
 			self.listar = listar;
+			self.listarWithPromise = listarWithPromise;
 			self.editar = editar;
 			self.switchCard = switchCard;
 			self.isListaCarregada = isListaCarregada;
@@ -76,7 +77,7 @@
 			}
 
 			function listar() {
-				return firebase.database()
+				firebase.database()
 					.ref()
 					.child(self.entidadeFirebase)
 					.once('value')
@@ -84,6 +85,16 @@
 						self.listaEnditadeCarregada = true;
 						self.listaEntidade = response.val();
 						self.reload();
+					});
+			}
+
+			function listarWithPromise() {
+				return firebase.database()
+					.ref()
+					.child(self.entidadeFirebase)
+					.once('value')
+					.then(function (response) {
+						return response.val();
 					});
 			}
 

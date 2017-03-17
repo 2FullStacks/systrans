@@ -6,17 +6,18 @@
 		.controller('AlunoController', AlunoController);
 
 	/* @ngInject */
-	function AlunoController(AlunoService, $scope) {
+	function AlunoController(AlunoService, $scope, InstituicaoService) {
 		var vm = this;
 
-		vm.fsService = AlunoService.getFsService();
+		vm.alunoService = AlunoService.getFsService();
+		vm.instituicaoService = InstituicaoService.getFsService();
 
-		vm.fsService.reload = reload;
+		vm.alunoService.reload = reload;
 
 		init();
 
 		function init() {
-			vm.fsService.listar();
+			vm.alunoService.listar();
 		}
 
 		function reload() {
