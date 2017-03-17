@@ -6,11 +6,11 @@
 		.service('InstituicaoService', InstituicaoService);
 
 	/* @ngInject */
-	function InstituicaoService(StService) {
-		this.getStService = getStService;
+	function InstituicaoService(FsService) {
+		this.getFsService = getFsService;
 
-		function getStService() {
-			var ps = new StService('CadastroInstituicaoController');
+		function getFsService() {
+			var ps = new FsService('CadastroInstituicaoController');
 			ps.tituloPaginaCadastro = "Cadastro de instituição";
 			ps.tituloPaginaPesquisa = "Pesquisa de instituição";
 			ps.nomeKey = 'instituicao';

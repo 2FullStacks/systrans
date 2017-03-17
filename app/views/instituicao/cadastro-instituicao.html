@@ -6,14 +6,14 @@
 </div>
 
 
-<st-crud titulo="vm.stService.tituloPaginaCadastro"
+<st-crud titulo="vm.fsService.tituloPaginaCadastro"
          tipo="primary"
-         service="vm.stService">
+         service="vm.fsService">
     <st-crud-body>
         <form name="{{templateFormName}}">
             <div layout="column" layout-align="space-between stretch">
             <st-input-text label="Nome"
-                           ng-model="vm.stService.entidade.nome"
+                           ng-model="vm.fsService.entidade.nome"
                                ng-required="true">
             </st-input-text>
             </div>

@@ -3,14 +3,14 @@
 
 	angular
 		.module('st')
-		.directive('isSelect', isSelect);
+		.directive('fsSelect', fsSelect);
 
 	/* @ngInject */
-	function isSelect() {
+	function fsSelect() {
 		var directive = {
 			restrict: 'E',
 			require: '^form',
-			templateUrl: 'shared/directives/isSelect/is-select.template.html',
+			templateUrl: 'shared/directives/fsSelect/fs-select.template.html',
 			link: link,
 			scope: {
 				label: '@',
@@ -31,7 +31,7 @@
 
 		function link($scope, element, attrs, formCtrl) {
 			$scope.formCtrl = formCtrl;
-			$scope.selectName = 'isSelect' + $scope.$id;
+			$scope.selectName = 'fsSelect' + $scope.$id;
 			$scope.selectControl = $scope.control || {};
 			$scope.largura = $scope.largura ? $scope.largura : '12';
 			$scope.tamanhoIcone = $scope.tamanhoIcone ? $scope.tamanhoIcone : '48';

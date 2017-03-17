@@ -11,16 +11,16 @@
 
 		vm.titulo = "Pesquisa de instituição";
 
-		vm.stService = InstituicaoService.getStService();
+		vm.fsService = InstituicaoService.getFsService();
 
 		init();
 
 		vm.gridOptions = {
-			data: vm.stService.entidades
+			data: vm.fsService.entidades
 		};
 
 		function init() {
-			vm.stService.listar();
+			vm.fsService.listar();
 		}
 	}
 })();
