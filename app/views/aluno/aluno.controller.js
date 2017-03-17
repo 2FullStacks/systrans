@@ -18,6 +18,7 @@
 
 		function init() {
 			vm.alunoService.listar();
+			reload();
 		}
 
 		function reload() {

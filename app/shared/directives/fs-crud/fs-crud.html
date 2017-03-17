@@ -1,11 +1,12 @@
 <div class="row">
     <div class="col s12">
         <div class="card white hoverable">
-            <div class="card-content">
-                <div class="progress" ng-show="!service.isListaCarregada()">
-                    <div class="indeterminate"></div>
-                </div>
-                <md-button ng-show="service.isListaCarregada() && !!service.listaEntidade" class="md-icon-button collapse right activator"
+            <div class="progress" ng-show="!service.isListaCarregada()">
+                <div class="indeterminate"></div>
+            </div>
+            <div class="card-content" ng-show="service.isListaCarregada() && !!service.listaEntidade">
+                <md-button ng-show="service.isListaCarregada() && !!service.listaEntidade"
+                           class="md-icon-button collapse right activator"
                            aria-label="Listagem"
                            ng-click="::service.switchCard()">
                     <md-tooltip>Alunos Cadastrados</md-tooltip>

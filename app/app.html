@@ -56,9 +56,17 @@
                 </md-sidemenu-content>
 
                 <md-sidemenu-content md-icon="account_balance" md-heading="Faculdade" md-arrow="true">
-                    <md-sidemenu-button ng-click="vm.alterarRota('cadastroInstituicao')">Cadastro de Faculdade
+                    <md-sidemenu-button ng-click="vm.alterarRota('instituicao')">Cadastro de Faculdade
                     </md-sidemenu-button>
                 </md-sidemenu-content>
+
+                <md-sidemenu-content md-icon="assignment_ind" md-heading="Contratos" md-arrow="true">
+                    <md-sidemenu-button md-icon="assignment_ind" ng-click="vm.alterarRota('cadastroInstituicao')">Novo Contrato
+                    </md-sidemenu-button>
+                    <md-sidemenu-button ng-click="vm.alterarRota('cadastroInstituicao')">Listar Contratos
+                    </md-sidemenu-button>
+                </md-sidemenu-content>
+
             </md-sidemenu-group>
         </md-sidemenu>
     </md-sidenav>
