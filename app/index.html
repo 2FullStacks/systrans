@@ -50,24 +50,15 @@
                     <md-sidemenu-content ng-click="vm.alterarRota('dashboard')" md-icon="&#xE1AF;"
                                          md-heading="Dashboard">
                     </md-sidemenu-content>
-                    <md-sidemenu-content md-icon="supervisor_account" md-heading="Aluno" md-arrow="true">
-                        <md-sidemenu-button ng-click="vm.alterarRota('cadastroAluno')">Cadastro de Aluno
+                    <md-sidemenu-content md-icon="school" md-heading="Escolar" md-arrow="true">
+                        <md-sidemenu-button ng-click="vm.alterarRota('aluno')">
+                            <i class="material-icons left">supervisor_account</i>
+                            <span>Alunos</span>
                         </md-sidemenu-button>
+                        <md-sidemenu-button ng-click="vm.alterarRota('instituicao')">
+                            <i class="material-icons left">account_balance</i>
+                            <span>Instituições</span>
                     </md-sidemenu-content>
-
-                    <md-sidemenu-content md-icon="account_balance" md-heading="Faculdade" md-arrow="true">
-                        <md-sidemenu-button ng-click="vm.alterarRota('instituicao')">Cadastro de Faculdade
-                        </md-sidemenu-button>
-                    </md-sidemenu-content>
-
-                    <md-sidemenu-content md-icon="assignment_ind" md-heading="Contratos" md-arrow="true">
-                        <md-sidemenu-button md-icon="assignment_ind" ng-click="vm.alterarRota('cadastroInstituicao')">
-                            Novo Contrato
-                        </md-sidemenu-button>
-                        <md-sidemenu-button ng-click="vm.alterarRota('cadastroInstituicao')">Listar Contratos
-                        </md-sidemenu-button>
-                    </md-sidemenu-content>
-
                 </md-sidemenu-group>
             </md-sidemenu>
         </md-sidenav>
