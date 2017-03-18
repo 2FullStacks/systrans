@@ -15,13 +15,13 @@
                            class="md-icon-button collapse right activator"
                            aria-label="Listagem"
                            ng-click="::service.switchCard()">
-                    <md-tooltip>Alunos Cadastrados</md-tooltip>
+                    <md-tooltip>Listagem</md-tooltip>
                     <i class="material-icons right">list</i>
                 </md-button>
 
                 <form novalidate name="formGenerico">
                     <div class="row">
-                        <i class="material-icons" ng-bind="::classIcone"></i>
+                        <i class="material-icons left" ng-bind="icone"></i>
                         <span class="card-title" ng-bind="::service.tituloPaginaCadastro"></span>
                         <div ng-transclude="header"></div>
                         <div ng-transclude="body"></div>
@@ -48,7 +48,7 @@
                     <i class="material-icons right">close</i>
                 </md-button>
 
-                <i class="material-icons left" ng-bind="::classIcone"></i>
+                <i class="material-icons left" ng-bind="::icone"></i>
                 <span class="card-title " ng-bind="::service.tituloPaginaPesquisa"></span>
                 <div ng-transclude="list"></div>
             </div>

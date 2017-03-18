@@ -8,7 +8,7 @@
 		return {
 			restrict: 'E',
 			scope: {
-				classIcone: '@',
+				icone: '@',
 				service: '='
 			},
 			transclude: {
@@ -22,12 +22,13 @@
 		};
 		function link(scope) {
 			iniciar();
+
 			function iniciar() {
 				definirValoresDefault();
 			}
 
 			function definirValoresDefault() {
-				scope.classIcone = scope.classIcone || 'assignment_ind';
+				scope.icone = scope.icone || 'assignment_ind';
 			}
 		}
 	}
