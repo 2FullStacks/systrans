@@ -8,6 +8,14 @@
 	/* @ngInject */
 	function config($stateProvider) {
 
+		const login = {
+			name: 'login',
+			url: '/login',
+			templateUrl: 'views/login/login.html',
+			controller: 'LoginController',
+			controllerAs: 'vm'
+		};
+
 		const dashboard = {
 			name: 'dashboard',
 			url: '/dashboard',
@@ -33,6 +41,7 @@
 		};
 
 		$stateProvider
+			.state('login', login)
 			.state('dashboard', dashboard)
 			.state('aluno', aluno)
 			.state('instituicao', instituicao);

@@ -38,6 +38,8 @@ var path = {
 		'app/shared/services/fs-storage.service.js',
 		'app/shared/services/fs-alert.service.js',
 		'app/shared/services/fs-service.service.js',
+		'app/views/login/login.controller.js',
+		'app/views/login/login.service.js',
 		'app/views/dashboard/dashboard.controller.js',
 		'app/views/dashboard/dashboard.service.js',
 		'app/views/instituicao/instituicao.controller.js',

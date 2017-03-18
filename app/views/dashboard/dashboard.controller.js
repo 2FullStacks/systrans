@@ -14,19 +14,18 @@
 		vm.openSideNavPanel = openSideNavPanel;
 		vm.closeSideNavPanel = closeSideNavPanel;
 		vm.alterarRota = alterarRota;
-		// vm.isUsuarioLogado = isUsuarioLogado;
-		// vm.signOut = signOut;
+		vm.isUsuarioLogado = isUsuarioLogado;
+		vm.signOut = signOut;
 		vm.listaSelecoes = [];
 
 		init();
 
 		function init() {
-			$state.go('dashboard');
-			// AuthService.firebaseIsInitialized();
-			// $state.go(vm.isUsuarioLogado() ? 'dashboard' : 'login');
-			// $(document).ready(function () {
-			// 	$scope.$apply();
-			// });
+			AuthService.firebaseIsInitialized();
+			$state.go(vm.isUsuarioLogado() ? 'dashboard' : 'login');
+			$(document).ready(function () {
+				$scope.$apply();
+			});
 		}
 
 		function alterarRota(state) {
@@ -42,16 +41,16 @@
 			$mdSidenav('left').close();
 		}
 
-		// function isUsuarioLogado() {
-		// 	return AuthService.isUsuarioLogado();
-		// }
+		function isUsuarioLogado() {
+			return AuthService.isUsuarioLogado();
+		}
 
-		// function signOut() {
-		// 	AuthService.signOut().then(function () {
-		// 		$state.go('login');
-		// 		$location.url('login');
-		// 	});
-		// }
+		function signOut() {
+			AuthService.signOut().then(function () {
+				$state.go('login');
+				$location.url('login');
+			});
+		}
 
 	}
 })();

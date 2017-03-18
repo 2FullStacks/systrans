@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Systrans - Login</title>
+    <title>Systrans - Mais um software de 2FullStacks</title>
 
     <link rel="stylesheet" href="styles.css">
 
@@ -14,58 +14,67 @@
     <script src="app.min.js"></script>
 </head>
 
-<body ng-cloak ng-controller="DashboardController as vm" class="telaLogin">
-
-<!--<div  ng-controller="LoginController as vm">-->
-    <!--FundoImg-->
-    <!--Topo-->
-    <br><br><br><br><br><br>
-    <!--Formulario-->
-    <div class="" >
-        <div class="container-fluid " >
-            <div class="rowz-depth-2 ">
-                <div>
-                    <div class="col s12 m12 l12 "  >
-                        <div class="account-wall center-align z-depth-2 " id="loginform" >
-                            <img  src="assets/img/logo.png" alt="" class="img-responsive animated pulse" id="imgLogin">
-
-                            <br>
-                            <form class="form-signin" action=""  >
-
-                                <div class="input-field col s12 ">
-                                    <i class="material-icons prefix">account_circle</i>
-                                    <input id="icon_prefix2"
-                                           type="text"
-                                           class="form-control validate"
-                                           required="required"
-                                           autofocus
-                                           ng-model="user">
-                                    <label for="icon_prefix2" class="left-align">Usuario</label>
-                                </div>
-
-                                <div class="input-field col s12">
-                                    <i class="material-icons prefix">vpn_key</i>
-                                    <input type="password"
-                                           id="icon_prefix"
-                                           class="form-control validate"
-                                           required="required"
-                                           ng-model="password">
-
-                                    <label for="icon_prefix" class="left-align" >Senha</label>
-                                </div>
-                                <br>
-                                <a class="btn waves-effect waves-light blue darken-3"
-                                   href="app.html"
-                                   role="button">   <i class="material-icons right">send</i>Entrar</a>
-                                <br><br>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+<body ng-cloak ng-controller="DashboardController as vm">
+<div ng-if="vm.isUsuarioLogado()">
+    <nav class="navbar navbar-light bg-faded indigo darken-4">
+        <a href="#/dashboard" class="brand-logo center">Systrans</a>
+        <div class="collapse" id="exCollapsingNavbar">
+            <md-button class="md-icon-button" aria-label="Side Panel" ng-click="vm.openSideNavPanel()">
+                <md-tooltip>Menu</md-tooltip>
+                <md-icon class="white-text material-icons">&#xE5D2;</md-icon>
+            </md-button>
+            <md-button class="md-icon-button right" aria-label="Sair" ng-click="vm.signOut()">
+                <md-tooltip>Sair</md-tooltip>
+                <md-icon class="white-text material-icons">exit_to_app</md-icon>
+            </md-button>
         </div>
+    </nav>
+
+    <div class="row">
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+            <md-toolbar layout="row" style="height: 200px; background-color: #0D47A1">
+                <div class="md-toolbar-tools blue darken-4">
+                    <h2><span>Systrans</span></h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="vm.closeSideNavPanel()">
+                        <md-tooltip>Fechar</md-tooltip>
+                        <md-icon class="material-icons">&#xE5CD;</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <md-sidemenu locked="true">
+                <md-sidemenu-group>
+                </md-sidemenu-group>
+                <md-sidemenu-group>
+                    <md-subheader class="md-no-sticky">Menu</md-subheader>
+                    <md-sidemenu-content ng-click="vm.alterarRota('dashboard')" md-icon="&#xE1AF;"
+                                         md-heading="Dashboard">
+                    </md-sidemenu-content>
+                    <md-sidemenu-content md-icon="supervisor_account" md-heading="Aluno" md-arrow="true">
+                        <md-sidemenu-button ng-click="vm.alterarRota('cadastroAluno')">Cadastro de Aluno
+                        </md-sidemenu-button>
+                    </md-sidemenu-content>
+
+                    <md-sidemenu-content md-icon="account_balance" md-heading="Faculdade" md-arrow="true">
+                        <md-sidemenu-button ng-click="vm.alterarRota('instituicao')">Cadastro de Faculdade
+                        </md-sidemenu-button>
+                    </md-sidemenu-content>
+
+                    <md-sidemenu-content md-icon="assignment_ind" md-heading="Contratos" md-arrow="true">
+                        <md-sidemenu-button md-icon="assignment_ind" ng-click="vm.alterarRota('cadastroInstituicao')">
+                            Novo Contrato
+                        </md-sidemenu-button>
+                        <md-sidemenu-button ng-click="vm.alterarRota('cadastroInstituicao')">Listar Contratos
+                        </md-sidemenu-button>
+                    </md-sidemenu-content>
+
+                </md-sidemenu-group>
+            </md-sidemenu>
+        </md-sidenav>
     </div>
-<!--</div>-->
+</div>
+<ui-view>
+</ui-view>
+
 </body>
 </html>
