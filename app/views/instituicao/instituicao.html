@@ -1,19 +1,11 @@
-<div class="fixed-action-btn horizontal">
-    <a class="btn-floating btn-large indigo darken-4 waves-effect waves-light" href="#/dashboard">
-        <i class="material-icons">reply</i>
-        <md-tooltip md-direction="top">Voltar</md-tooltip>
-    </a>
-</div>
 <fs-crud service="vm.fsService">
     <fs-crud-body>
-
         <fs-input-text label="Nome"
                        largura="12"
                        icone="description"
                        ng-model="vm.fsService.entidade.nome"
                        ng-required="true">
         </fs-input-text>
-
     </fs-crud-body>
     <fs-list>
         <table class="highlight">
