@@ -10,7 +10,7 @@
             <div class="progress" ng-show="!service.isListaCarregada()">
                 <div class="indeterminate"></div>
             </div>
-            <div class="card-content" ng-show="service.isListaCarregada()">
+            <div class="card-content estruturaLayout" ng-show="service.isListaCarregada()" >
                 <md-button ng-show="service.isListaCarregada() && !!service.listaEntidade"
                            class="md-icon-button collapse right activator"
                            aria-label="Listagem"

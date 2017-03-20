@@ -17,7 +17,12 @@
 		init();
 
 		function init() {
-			vm.alunoService.listar();
+			vm.alunoService.listarWithInstituicoes()
+				.then(function (lista) {
+					vm.alunoService.listaEntidade = lista;
+					vm.alunoService.listaEnditadeCarregada = true;
+					reload();
+				});
 			reload();
 		}
 

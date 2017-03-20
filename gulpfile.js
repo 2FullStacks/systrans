@@ -27,7 +27,8 @@ var path = {
 		'bower_components/angularfire/dist/angularfire.js',
 		'bower_components/angular-local-storage/dist/angular-local-storage.js',
 		'bower_components/material-steppers/dist/material-steppers.js',
-		'bower_components/angular-materialize/src/angular-materialize.js'
+		'bower_components/angular-materialize/src/angular-materialize.js',
+		'bower_components/angular-input-masks/angular-input-masks-standalone.js'
 	],
 	APP: [
 		'app/assets/**/*.js',

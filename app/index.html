@@ -14,7 +14,7 @@
     <script src="app.min.js"></script>
 </head>
 
-<body ng-cloak ng-controller="DashboardController as vm">
+<body ng-cloak ng-controller="DashboardController as vm" ng-class="">
 <div ng-if="vm.isUsuarioLogado()">
     <nav class="navbar navbar-light bg-faded indigo darken-4">
         <a href="#/dashboard" class="brand-logo center">Systrans</a>
@@ -65,6 +65,7 @@
     </div>
 </div>
 <ui-view>
+
 </ui-view>
 
 </body>

@@ -8,6 +8,11 @@
         </fs-input-text>
     </fs-crud-body>
     <fs-list>
+        <div class="input-field col s6">
+            <input id="last_name" type="text" class="validate" ng-model="criterio">
+            <label for="last_name">Pesquisar</label>
+        </div>
+
         <table class="highlight">
             <thead>
             <tr>
@@ -17,7 +22,7 @@
             </thead>
 
             <tbody>
-            <tr ng-repeat="(key, value) in vm.fsService.listaEntidade">
+            <tr ng-repeat="(key, value) in vm.fsService.listaEntidade ">
                 <td class="col l3 m3 s3">{{value.nome}}</td>
                 <td class="col l2 m2 s2 center">
                     <md-button class="md-icon-button semEspaco"

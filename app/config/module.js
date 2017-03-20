@@ -11,6 +11,7 @@
 			'firebase',
 			'LocalStorageModule',
 			'mdSteppers',
-			'ui.materialize'
+			'ui.materialize',
+			'ui.utils.masks'
 		]);
 })();

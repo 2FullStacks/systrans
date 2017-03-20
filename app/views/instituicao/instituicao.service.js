@@ -9,6 +9,7 @@
 	function InstituicaoService(FsService) {
 		this.getFsService = getFsService;
 
+
 		function getFsService() {
 			var fs = new FsService();
 			fs.tituloPaginaCadastro = 'Cadastro de instituição';
