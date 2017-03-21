@@ -10,18 +10,17 @@
 		var directive = {
 			restrict: 'E',
 			require: '^form',
+			templateUrl: 'shared/directives/fs-input-text/fs-input-text.template.html',
 			link: link,
 			scope: {
 				label: '@',
-
 				largura: '@',
 				icone: '@',
 				tamanho: '@',
 				tipo: '@',
 				ngModel: '=',
 				ngRequired: '='
-			},
-			templateUrl: 'shared/directives/fs-input-text/fs-input-text.template.html'
+			}
 		};
 		return directive;
 

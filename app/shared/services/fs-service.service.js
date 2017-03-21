@@ -68,7 +68,7 @@
 					.once('value')
 					.then(function (response) {
 						self.listaEnditadeCarregada = true;
-						self.listaEntidade = response.val();
+						self.listaEntidade = Object.values(response.val());
 						self.reload();
 					});
 			}

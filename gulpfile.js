@@ -1,14 +1,13 @@
-//npm install --save-dev gulp browserify source jshint browserSync uglify concat util ngAnnotate del
-var gulp = require('gulp');
-var browserify = require('browserify');
-var source = require('vinyl-source-stream');
-var jshint = require('gulp-jshint');
+var del         = require('del');
+var browserify  = require('browserify');
+var gulp        = require('gulp');
+var source      = require('vinyl-source-stream');
+var jshint      = require('gulp-jshint');
 var browserSync = require('browser-sync').create();
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var util = require('gulp-util');
-var ngAnnotate = require('gulp-ng-annotate');
-var del = require('del');
+var uglify      = require('gulp-uglify');
+var concat      = require('gulp-concat');
+var util        = require('gulp-util');
+var ngAnnotate  = require('gulp-ng-annotate');
 
 var ambiente = util.env.prod ? 'prod' : 'dev';
 var configFile = './app/env/' + ambiente + '.js';
@@ -28,7 +27,7 @@ var path = {
 		'bower_components/angular-local-storage/dist/angular-local-storage.js',
 		'bower_components/material-steppers/dist/material-steppers.js',
 		'bower_components/angular-materialize/src/angular-materialize.js',
-		'bower_components/angular-input-masks/angular-input-masks-standalone.js'
+		'bower_components/angular-input-masks/angular-input-masks-standalone.min.js',
 	],
 	APP: [
 		'app/assets/**/*.js',
