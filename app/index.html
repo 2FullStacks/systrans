@@ -23,10 +23,11 @@
                 <md-tooltip>Menu</md-tooltip>
                 <md-icon class="white-text material-icons">&#xE5D2;</md-icon>
             </md-button>
-            <md-button class="md-icon-button right" aria-label="Sair" ng-click="vm.signOut()">
-                <md-tooltip>Sair</md-tooltip>
-                <md-icon class="white-text material-icons">exit_to_app</md-icon>
-            </md-button>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="" ng-click="vm.signOut()"><i class="material-icons">exit_to_app</i>
+                    <md-tooltip>Sair</md-tooltip></a>
+                </li>
+            </ul>
         </div>
     </nav>
 

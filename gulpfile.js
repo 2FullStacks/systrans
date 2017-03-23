@@ -34,7 +34,7 @@ var path = {
 		'app/config/interceptor.js',
 		'app/config/rotas.js',
 		'app/config/auth.service.js',
-		'app/shared/directives/**/*.js',
+		'app/shared/directives/**/**/*.js',
 		'app/shared/services/fs-storage.service.js',
 		'app/shared/services/fs-alert.service.js',
 		'app/shared/services/fs-service.service.js',

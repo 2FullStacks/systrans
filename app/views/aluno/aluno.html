@@ -62,10 +62,10 @@
 
             <tbody>
             <tr ng-repeat="aluno in vm.alunoService.listaEntidade | filter : criterio ">
-                <td class="col l3 m3 s3">{{aluno.nome}}</td>
-                <td class="col l3 m3 s3">{{aluno.instituicao.nome}}</td>
-                <td class="col l2 m2 s2">{{aluno.turno}}</td>
-                <td class="col l2 m2 s2">{{aluno.telefone}}</td>
+                <td class="col l3 m3 s3 " style="text-align:left; padding-top: 5px; padding: 15px">{{aluno.nome}}</td>
+                <td class="col l3 m3 s3 " style="text-align:left; padding-top: 5px; padding: 15px">{{aluno.instituicao.nome}}</td>
+                <td class="col l2 m2 s2" style="text-align:left; padding-top: 5px; padding: 15px">{{aluno.turno}}</td>
+                <td class="col l2 m2 s2" style="text-align:left; padding-top: 5px; padding: 15px">{{aluno.telefone}}</td>
                 <td class="col l2 m2 s2 center">
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
