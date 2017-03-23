@@ -27,8 +27,8 @@
 					return firebase.database()
 						.ref()
 						.child(self.entidadeFirebase + '/' + self.entidade.key)
-						.set(angular.fromJson(angular.toJson(self.entidade)))
-						.then(success);
+						.set(self.entidade)
+						.then(success("ok"));
 				} else {
 					return firebase.database()
 						.ref()
@@ -42,7 +42,7 @@
 					verificaPostModificar();
 					limpar();
 					self.reload();
-					return !!result.key;
+					return !!result;
 				}
 			}
 
@@ -89,10 +89,7 @@
 			}
 
 			function editar(entidade) {
-				for (var i = 0; i < self.listaEntidade.length; i++) {
-					var obj = self.listaEntidade[i];
-					obj.key === entidade.key ? self.entidade = obj : null;
-				}
+				self.entidade = angular.fromJson(angular.toJson(entidade));
 				self.switchCard();
 			}
 

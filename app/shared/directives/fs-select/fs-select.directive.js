@@ -36,7 +36,6 @@
 			$scope.tamanhoIcone = $scope.tamanhoIcone ? $scope.tamanhoIcone : '48';
 			var lista = $scope.lista ? $scope.lista : [];
 
-			$scope.disabled = true;
 			if (typeof $scope.function === 'function') {
 				$scope.function().then(function (result) {
 					lista = result;

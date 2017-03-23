@@ -45,12 +45,12 @@
 								alunos.push(listaObjetos[key]);
 							}
 							alunos.forEach(function (aluno) {
-								aluno.instituicao = instituicoes[aluno.instituicao];
+								aluno.instituicao = instituicoes[aluno.instituicao.key];
 							});
 						});
 					promises.push(promise);
 
-					return Promise.all(promises).then(function (data) {
+					return Promise.all(promises).then(function () {
 						return alunos;
 					});
 
