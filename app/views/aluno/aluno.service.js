@@ -45,7 +45,9 @@
 								alunos.push(listaObjetos[key]);
 							}
 							alunos.forEach(function (aluno) {
-								aluno.instituicao = instituicoes[aluno.instituicao.key];
+								var instituicao = instituicoes[aluno.instituicao.key];
+								instituicao.key = aluno.instituicao.key;
+								aluno.instituicao = instituicao;
 							});
 						});
 					promises.push(promise);
