@@ -13,21 +13,29 @@
 		vm.instituicaoService = InstituicaoService.getFsService();
 
 		vm.alunoService.reload = reload;
+		vm.alunoService.postModificar = postModificar;
 
 		init();
 
 		function init() {
+			listarWithInstituicoes();
+		}
+
+		function reload() {
+			$scope.$applyAsync();
+		}
+
+		function postModificar() {
+			listarWithInstituicoes();
+		}
+
+		function listarWithInstituicoes() {
 			vm.alunoService.listarWithInstituicoes()
 				.then(function (lista) {
 					vm.alunoService.listaEntidade = lista;
 					vm.alunoService.listaEnditadeCarregada = true;
 					reload();
 				});
-			reload();
-		}
-
-		function reload() {
-			$scope.$applyAsync();
 		}
 	}
 

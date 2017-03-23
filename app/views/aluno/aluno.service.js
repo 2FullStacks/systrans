@@ -7,6 +7,7 @@
 
 	/* @ngInject */
 	function AlunoService(FsService) {
+
 		this.getFsService = getFsService;
 
 		function getFsService() {
@@ -38,7 +39,11 @@
 						.child('alunos')
 						.once('value')
 						.then(function (response) {
-							alunos = Object.values(response.val());
+							var listaObjetos = response.val();
+							for (var key in listaObjetos) {
+								listaObjetos[key].key = key;
+								alunos.push(listaObjetos[key]);
+							}
 							alunos.forEach(function (aluno) {
 								aluno.instituicao = instituicoes[aluno.instituicao];
 							});
@@ -51,9 +56,6 @@
 
 				});
 		}
-
-
 	}
-
 })();
 

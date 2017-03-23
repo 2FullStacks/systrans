@@ -61,21 +61,21 @@
             </thead>
 
             <tbody>
-            <tr ng-repeat="(key, value) in vm.alunoService.listaEntidade | filter : criterio ">
-                <td class="col l3 m3 s3">{{value.nome}}</td>
-                <td class="col l3 m3 s3">{{value.instituicao.nome}}</td>
-                <td class="col l2 m2 s2">{{value.turno}}</td>
-                <td class="col l2 m2 s2">{{value.telefone}}</td>
+            <tr ng-repeat="aluno in vm.alunoService.listaEntidade | filter : criterio ">
+                <td class="col l3 m3 s3">{{aluno.nome}}</td>
+                <td class="col l3 m3 s3">{{aluno.instituicao.nome}}</td>
+                <td class="col l2 m2 s2">{{aluno.turno}}</td>
+                <td class="col l2 m2 s2">{{aluno.telefone}}</td>
                 <td class="col l2 m2 s2 center">
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
-                               ng-click="vm.alunoService.editar(key)">
+                               ng-click="vm.alunoService.editar(aluno)">
                         <md-tooltip>Editar Aluno</md-tooltip>
                         <a href="#" class="material-icons blue-grey-text">edit</a>
                     </md-button>
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
-                               ng-click="vm.alunoService.eliminar(key)">
+                               ng-click="vm.alunoService.eliminar(aluno.key)">
                         <md-tooltip>Excluir Aluno</md-tooltip>
                         <a href="#" class="material-icons red-text">delete</a>
                     </md-button>

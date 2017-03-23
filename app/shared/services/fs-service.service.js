@@ -4,7 +4,7 @@
 	angular.module('st')
 		.service('FsService', FsService);
 
-	function FsService($http, FsAlertService) {
+	function FsService(FsAlertService) {
 		return function () {
 			var self = this;
 
@@ -23,11 +23,12 @@
 			self.isListaCarregada = isListaCarregada;
 
 			function salvar() {
+				debugger;
 				if (self.entidade.key) {
 					return firebase.database()
 						.ref()
 						.child(self.entidadeFirebase + '/' + self.entidade.key)
-						.set(self.entidade)
+						.set(angular.fromJson(angular.toJson(self.entidade)))
 						.then(success);
 				} else {
 					return firebase.database()
@@ -39,8 +40,8 @@
 
 				function success(result) {
 					FsAlertService.showSuccess('Registro salvo com sucesso!');
+					verificaPostModificar();
 					limpar();
-					listar();
 					self.reload();
 					return !!result.key;
 				}
@@ -52,7 +53,7 @@
 					.child(key)
 					.remove()
 					.then(function () {
-						listar();
+						verificaPostModificar();
 						if (Object.keys(self.listaEntidade).length <= 1) {
 							self.switchCard();
 						}
@@ -68,12 +69,18 @@
 					.once('value')
 					.then(function (response) {
 						self.listaEnditadeCarregada = true;
-						self.listaEntidade = Object.values(response.val());
+						self.listaEntidade = [];
+						var listaObjetos = response.val();
+						for (var key in listaObjetos) {
+							listaObjetos[key].key = key;
+							self.listaEntidade.push(listaObjetos[key]);
+						}
 						self.reload();
 					});
 			}
 
 			function listarWithPromise() {
+				debugger;
 				return firebase.database()
 					.ref()
 					.child(self.entidadeFirebase)
@@ -83,9 +90,11 @@
 					});
 			}
 
-			function editar(key) {
-				self.entidade = self.listaEntidade[key];
-				self.entidade.key = key;
+			function editar(entidade) {
+				for (var i = 0; i < self.listaEntidade.length; i++) {
+					var obj = self.listaEntidade[i];
+					obj.key === entidade.key ? self.entidade = obj : null;
+				}
 				self.switchCard();
 			}
 
@@ -100,6 +109,15 @@
 
 			function isListaCarregada() {
 				return self.listaEnditadeCarregada;
+			}
+
+			function verificaPostModificar() {
+				if (self.postModificar) {
+					self.postModificar();
+				} else {
+					listar();
+				}
+				self.reload();
 			}
 
 		};

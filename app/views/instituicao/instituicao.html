@@ -22,18 +22,18 @@
             </thead>
 
             <tbody>
-            <tr ng-repeat="(key, value) in vm.fsService.listaEntidade | filter: criterio">
-                <td class="col l3 m3 s3">{{value.nome}}</td>
+            <tr ng-repeat="instituicao in vm.fsService.listaEntidade | filter: criterio">
+                <td class="col l3 m3 s3">{{instituicao.nome}}</td>
                 <td class="col l2 m2 s2 center">
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
-                               ng-click="vm.fsService.editar(key)">
+                               ng-click="vm.fsService.editar(instituicao)">
                         <md-tooltip>Editar</md-tooltip>
                         <a href="#" class="material-icons black-text">edit</a>
                     </md-button>
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
-                               ng-click="vm.fsService.eliminar(key)">
+                               ng-click="vm.fsService.eliminar(instituicao.key)">
                         <md-tooltip>Eliminar</md-tooltip>
                         <a href="#" class="material-icons red-text">delete</a>
                     </md-button>
