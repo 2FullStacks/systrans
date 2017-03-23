@@ -23,7 +23,6 @@
 			self.isListaCarregada = isListaCarregada;
 
 			function salvar() {
-				debugger;
 				if (self.entidade.key) {
 					return firebase.database()
 						.ref()
@@ -80,7 +79,6 @@
 			}
 
 			function listarWithPromise() {
-				debugger;
 				return firebase.database()
 					.ref()
 					.child(self.entidadeFirebase)
