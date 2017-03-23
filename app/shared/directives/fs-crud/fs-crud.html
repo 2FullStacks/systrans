@@ -10,7 +10,7 @@
             <div class="progress" ng-show="!service.isListaCarregada()">
                 <div class="indeterminate"></div>
             </div>
-            <div class="card-content estruturaLayout" ng-show="service.isListaCarregada()" >
+            <div class="card-content estruturaLayout" ng-show="service.isListaCarregada()">
                 <md-button ng-show="service.isListaCarregada() && !!service.listaEntidade"
                            class="md-icon-button collapse right activator"
                            aria-label="Listagem"
@@ -19,7 +19,7 @@
                     <i class="material-icons right">list</i>
                 </md-button>
 
-                <form novalidate name="formGenerico">
+                <form novalidate id="formGenerico" name="formGenerico">
                     <div class="row">
                         <i class="material-icons left" ng-bind="icone"></i>
                         <span class="card-title" ng-bind="::service.tituloPaginaCadastro"></span>
@@ -27,6 +27,7 @@
                         <div ng-transclude="body"></div>
                     </div>
                     <div class="card-action">
+
                         <md-button ng-disabled="formGenerico.$invalid" class="md-raised md-primary"
                                    ng-click="service.salvar()">
                             Salvar
