@@ -7,11 +7,11 @@
 <div class="row">
     <div class="col s12">
         <div class="card white hoverable">
-            <div class="progress" ng-show="!service.isListaCarregada()">
+            <div class="progress" ng-show="!service.listaEntidade.length || service.listaEntidade == []">
                 <div class="indeterminate"></div>
             </div>
-            <div class="card-content estruturaLayout" ng-show="service.isListaCarregada()">
-                <md-button ng-show="service.isListaCarregada() && !!service.listaEntidade"
+            <div class="card-content estruturaLayout">
+                <md-button ng-show="service.listaEntidade.length"
                            class="md-icon-button collapse right activator"
                            aria-label="Listagem"
                            ng-click="::service.switchCard()">
@@ -19,7 +19,7 @@
                     <i class="material-icons right">list</i>
                 </md-button>
 
-                <form novalidate id="formGenerico" name="formGenerico">
+                <form novalidate id="formGenerico" name="formGenerico" ng-submit="service.salvar()">
                     <div class="row">
                         <i class="material-icons left" ng-bind="icone"></i>
                         <span class="card-title" ng-bind="::service.tituloPaginaCadastro"></span>

@@ -4,92 +4,64 @@
 	angular.module('st')
 		.service('FsService', FsService);
 
-	function FsService(FsAlertService) {
+	function FsService(FsAlertService, $firebaseArray) {
 		return function () {
 			var self = this;
 
 			self.entidade = {};
 			self.listaEntidade = [];
 			self.provider = [];
-			self.listaEnditadeCarregada = false;
 
+			self.initRef = initRef;
 			self.salvar = salvar;
 			self.eliminar = eliminar;
 			self.limpar = limpar;
 			self.listar = listar;
-			self.listarWithPromise = listarWithPromise;
 			self.editar = editar;
 			self.switchCard = switchCard;
-			self.isListaCarregada = isListaCarregada;
+
+			function initRef() {
+				self.fbRef = $firebaseArray(firebase.database().ref(self.entidadeFirebase));
+			}
 
 			function salvar() {
-				if (self.entidade.key) {
-					return firebase.database()
-						.ref()
-						.child(self.entidadeFirebase + '/' + self.entidade.key)
-						.set(self.entidade)
-						.then(success("ok"));
+				debugger;
+				if (self.entidade.$id) {
+					self.fbRef.$save(self.entidade).then(function (response) {
+						FsAlertService.showSuccess('Registro atualizado com sucesso');
+						limpar();
+						return response;
+					}, function (error) {
+						console.log(error)
+					});
 				} else {
-					return firebase.database()
-						.ref()
-						.child(self.entidadeFirebase)
-						.push(self.entidade)
-						.then(success);
-				}
-
-				function success(result) {
-					FsAlertService.showSuccess('Registro salvo com sucesso!');
-					verificaPostModificar();
-					limpar();
-					self.reload();
-					return !!result;
+					self.fbRef.$add(self.entidade).then(function (response) {
+						FsAlertService.showSuccess('Novo registro salvo com sucesso');
+						limpar();
+						return response;
+					});
 				}
 			}
 
 			function eliminar(key) {
-				return firebase.database()
-					.ref(self.entidadeFirebase)
-					.child(key)
-					.remove()
-					.then(function () {
-						verificaPostModificar();
-						if (Object.keys(self.listaEntidade).length <= 1) {
-							self.switchCard();
+				self.fbRef.$remove(self.fbRef[key])
+					.then(function (response) {
+						FsAlertService.showSuccess('Registro eliminado com sucesso');
+						if (self.fbRef.length == 0) {
+							switchCard();
 						}
-						FsAlertService.showSuccess('Registro eliminado !');
-						return true;
+						return response;
+					}, function (error) {
+						console.log(error)
 					});
 			}
 
 			function listar() {
-				firebase.database()
-					.ref()
-					.child(self.entidadeFirebase)
-					.once('value')
-					.then(function (response) {
-						self.listaEnditadeCarregada = true;
-						self.listaEntidade = [];
-						var listaObjetos = response.val();
-						for (var key in listaObjetos) {
-							listaObjetos[key].key = key;
-							self.listaEntidade.push(listaObjetos[key]);
-						}
-						self.reload();
-					});
+				return self.listaEntidade = $firebaseArray(firebase.database().ref(self.entidadeFirebase));
 			}
 
-			function listarWithPromise() {
-				return firebase.database()
-					.ref()
-					.child(self.entidadeFirebase)
-					.once('value')
-					.then(function (response) {
-						return response.val();
-					});
-			}
-
-			function editar(entidade) {
-				self.entidade = angular.fromJson(angular.toJson(entidade));
+			function editar(key) {
+				self.entidade = self.fbRef[key];
 				self.switchCard();
 			}
 
@@ -100,19 +72,6 @@
 			function switchCard() {
 				self.cardReveal = $('.card-reveal .card-title') ? $('.card-reveal .card-title') : $('.card .activator');
 				self.cardReveal.click();
-			}
-
-			function isListaCarregada() {
-				return self.listaEnditadeCarregada;
-			}
-
-			function verificaPostModificar() {
-				if (self.postModificar) {
-					self.postModificar();
-				} else {
-					listar();
-				}
-				self.reload();
 			}
 
 		};

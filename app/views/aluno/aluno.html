@@ -27,7 +27,7 @@
 
         <fs-select largura="6"
                    ng-model="vm.alunoService.entidade.instituicao.key"
-                   function="vm.instituicaoService.listarWithPromise"
+                   lista="vm.instituicaoService.listaEntidade"
                    ng-required="true"
                    show="nome"
                    key-as-value="true"
@@ -61,7 +61,7 @@
             </thead>
 
             <tbody>
-            <tr ng-repeat="aluno in vm.alunoService.listaEntidade | filter : criterio ">
+            <tr ng-repeat="(key, aluno) in vm.alunoService.listaEntidade | filter : criterio track by key">
                 <td class="col l3 m3 s3 " style="text-align:left; padding-top: 5px; padding: 15px">{{aluno.nome}}</td>
                 <td class="col l3 m3 s3 " style="text-align:left; padding-top: 5px; padding: 15px">{{aluno.instituicao.nome}}</td>
                 <td class="col l2 m2 s2" style="text-align:left; padding-top: 5px; padding: 15px">{{aluno.turno}}</td>
@@ -69,13 +69,13 @@
                 <td class="col l2 m2 s2 center">
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
-                               ng-click="vm.alunoService.editar(aluno)">
+                               ng-click="vm.alunoService.editar(key)">
                         <md-tooltip>Editar Aluno</md-tooltip>
                         <a href="#" class="material-icons blue-grey-text">edit</a>
                     </md-button>
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
-                               ng-click="vm.alunoService.eliminar(aluno.key)">
+                               ng-click="vm.alunoService.eliminar(key)">
                         <md-tooltip>Excluir Aluno</md-tooltip>
                         <a href="#" class="material-icons red-text">delete</a>
                     </md-button>

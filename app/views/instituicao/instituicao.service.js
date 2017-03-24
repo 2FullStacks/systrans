@@ -7,6 +7,7 @@
 
 	/* @ngInject */
 	function InstituicaoService(FsService) {
+
 		this.getFsService = getFsService;
 
 		function getFsService() {
@@ -14,12 +15,7 @@
 			fs.tituloPaginaCadastro = 'Cadastro de instituição';
 			fs.tituloPaginaPesquisa = 'Pesquisa de instituição';
 			fs.entidadeFirebase = 'instituicoes';
-
 			return fs;
 		}
-
-
 	}
-
 })();
-

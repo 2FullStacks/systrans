@@ -10,10 +10,10 @@
     <fs-list>
 
         <table class="highlight">
-        <div class="input-field col s6">
-            <input id="last_name" type="text" class="validate" ng-model="criterio">
-            <label for="last_name">Pesquisar</label>
-        </div>
+            <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate" ng-model="criterio">
+                <label for="last_name">Pesquisar</label>
+            </div>
             <thead>
             <tr>
                 <th data-field="descricao" class="col l3 m3 s3">Nome</th>
@@ -22,18 +22,18 @@
             </thead>
 
             <tbody>
-            <tr ng-repeat="instituicao in vm.fsService.listaEntidade | filter: criterio">
+            <tr ng-repeat="(key, instituicao) in vm.fsService.listaEntidade | filter: criterio track by key">
                 <td class="col l3 m3 s3">{{instituicao.nome}}</td>
                 <td class="col l2 m2 s2 center">
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
-                               ng-click="vm.fsService.editar(instituicao)">
+                               ng-click="vm.fsService.editar(key)">
                         <md-tooltip>Editar</md-tooltip>
                         <a href="#" class="material-icons black-text">edit</a>
                     </md-button>
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"
-                               ng-click="vm.fsService.eliminar(instituicao.key)">
+                               ng-click="vm.fsService.eliminar(key)">
                         <md-tooltip>Eliminar</md-tooltip>
                         <a href="#" class="material-icons red-text">delete</a>
                     </md-button>
