@@ -16,6 +16,7 @@
 
 		function init() {
 			vm.alunoService.initRef();
+			vm.alunoService.listar();
 			vm.instituicaoService.initRef();
 			vm.instituicaoService.listar();
 		}
