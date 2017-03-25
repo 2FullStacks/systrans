@@ -26,7 +26,7 @@
         </fs-input-text-phone>
 
         <fs-select largura="6"
-                   ng-model="vm.alunoService.entidade.instituicao.key"
+                   ng-model="vm.alunoService.entidade.instituicao"
                    lista="vm.instituicaoService.listaEntidade"
                    ng-required="true"
                    show="nome"
@@ -42,11 +42,21 @@
         </fs-select>
     </fs-crud-body>
 
-    <fs-list>
+    <fs-list ng-show="vm.alunoService.mode == 'list'">
 
-        <div class="input-field col s6">
-            <input id="last_name" type="text" class="validate" ng-model="criterio">
-            <label for="last_name">Pesquisar Aluno</label>
+        <div class="input-field col s4">
+            <input id="nome" type="text" class="validate" ng-model="criterio.nome">
+            <label for="nome">Aluno</label>
+        </div>
+
+        <div class="input-field col s4">
+            <input id="instituicao" type="text" class="validate" ng-model="criterio.data.instituicao.nome">
+            <label for="instituicao">Instituição</label>
+        </div>
+
+        <div class="input-field col s4">
+            <input id="turno" type="text" class="validate" ng-model="criterio.turno">
+            <label for="turno">Turno</label>
         </div>
 
         <table class="highlight">
@@ -61,11 +71,16 @@
             </thead>
 
             <tbody>
-            <tr ng-repeat="(key, aluno) in vm.alunoService.listaEntidade | filter : criterio track by key">
+
+            <tr ng-repeat="(key, aluno) in vm.alunoService.listaEntidade | filter : criterio track by key"
+                ng-init="aluno.data.instituicao = vm.alunoService.instituicao.$load(aluno.instituicao)">
                 <td class="col l3 m3 s3 " style="text-align:left; padding-top: 5px; padding: 15px">{{aluno.nome}}</td>
-                <td class="col l3 m3 s3 " style="text-align:left; padding-top: 5px; padding: 15px">{{aluno.instituicao.nome}}</td>
+                <td class="col l3 m3 s3 " style="text-align:left; padding-top: 5px; padding: 15px"
+                    ng-bind="aluno.data.instituicao.nome">
+                </td>
                 <td class="col l2 m2 s2" style="text-align:left; padding-top: 5px; padding: 15px">{{aluno.turno}}</td>
-                <td class="col l2 m2 s2" style="text-align:left; padding-top: 5px; padding: 15px">{{aluno.telefone}}</td>
+                <td class="col l2 m2 s2" style="text-align:left; padding-top: 5px; padding: 15px">{{aluno.telefone}}
+                </td>
                 <td class="col l2 m2 s2 center">
                     <md-button class="md-icon-button semEspaco"
                                aria-label="Fechar"

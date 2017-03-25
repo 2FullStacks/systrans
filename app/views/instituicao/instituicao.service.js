@@ -6,7 +6,7 @@
 		.service('InstituicaoService', InstituicaoService);
 
 	/* @ngInject */
-	function InstituicaoService(FsService) {
+	function InstituicaoService(FsService, $firebaseArray) {
 
 		this.getFsService = getFsService;
 
@@ -15,6 +15,7 @@
 			fs.tituloPaginaCadastro = 'Cadastro de instituição';
 			fs.tituloPaginaPesquisa = 'Pesquisa de instituição';
 			fs.entidadeFirebase = 'instituicoes';
+			fs.listaEntidade = $firebaseArray(firebase.database().ref().child(fs.entidadeFirebase));
 			return fs;
 		}
 	}

@@ -45,7 +45,8 @@ var path = {
 		'app/views/instituicao/instituicao.controller.js',
 		'app/views/instituicao/instituicao.service.js',
 		'app/views/aluno/aluno.controller.js',
-		'app/views/aluno/aluno.service.js'
+		'app/views/aluno/aluno.service.js',
+		'app/views/aluno/aluno.factory.js'
 
 
 	],

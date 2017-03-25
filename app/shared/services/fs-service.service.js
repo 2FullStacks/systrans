@@ -4,7 +4,7 @@
 	angular.module('st')
 		.service('FsService', FsService);
 
-	function FsService(FsAlertService, $firebaseArray) {
+	function FsService(FsAlertService) {
 		return function () {
 			var self = this;
 
@@ -12,22 +12,15 @@
 			self.listaEntidade = [];
 			self.provider = [];
 
-			self.initRef = initRef;
 			self.salvar = salvar;
 			self.eliminar = eliminar;
 			self.limpar = limpar;
-			self.listar = listar;
 			self.editar = editar;
 			self.switchCard = switchCard;
 
-			function initRef() {
-				self.fbRef = $firebaseArray(firebase.database().ref(self.entidadeFirebase));
-			}
-
 			function salvar() {
-				debugger;
 				if (self.entidade.$id) {
-					self.fbRef.$save(self.entidade).then(function (response) {
+					self.listaEntidade.$save(self.entidade).then(function (response) {
 						FsAlertService.showSuccess('Registro atualizado com sucesso');
 						limpar();
 						return response;
@@ -35,7 +28,7 @@
 						console.log(error)
 					});
 				} else {
-					self.fbRef.$add(self.entidade).then(function (response) {
+					self.listaEntidade.$add(self.entidade).then(function (response) {
 						FsAlertService.showSuccess('Novo registro salvo com sucesso');
 						limpar();
 						return response;
@@ -44,10 +37,10 @@
 			}
 
 			function eliminar(key) {
-				self.fbRef.$remove(self.fbRef[key])
+				self.listaEntidade.$remove(self.listaEntidade[key])
 					.then(function (response) {
 						FsAlertService.showSuccess('Registro eliminado com sucesso');
-						if (self.fbRef.length == 0) {
+						if (self.listaEntidade.length == 0) {
 							switchCard();
 						}
 						return response;
@@ -56,12 +49,8 @@
 					});
 			}
 
-			function listar() {
-				return self.listaEntidade = $firebaseArray(firebase.database().ref(self.entidadeFirebase));
-			}
-
 			function editar(key) {
-				self.entidade = self.fbRef[key];
+				self.entidade = self.listaEntidade[key];
 				self.switchCard();
 			}
 
@@ -70,7 +59,14 @@
 			}
 
 			function switchCard() {
-				self.cardReveal = $('.card-reveal .card-title') ? $('.card-reveal .card-title') : $('.card .activator');
+				self.cardReveal = '';
+				if($('.card-reveal .card-title')){
+					self.mode = 'list';
+					self.cardReveal = $('.card-reveal .card-title')
+				}else{
+					self.mode = 'edit';
+					self.cardReveal = $('.card .activator')
+				}
 				self.cardReveal.click();
 			}
 

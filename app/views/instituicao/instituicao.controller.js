@@ -11,13 +11,6 @@
 
 		vm.fsService = InstituicaoService.getFsService();
 
-		init();
-
-		function init() {
-			vm.fsService.initRef();
-			vm.fsService.listar();
-
-		}
 	}
 
 })();

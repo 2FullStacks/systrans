@@ -8,8 +8,8 @@
         <option value=""
                 disabled selected>{{::mensagem}}
         </option>
-        <option ng-repeat="(k, v) in getLista() track by $index"
-                ng-value="keyAsValue ? k : v[show] ? v[show] : v">{{v[show] ? v[show] : v}}
+        <option ng-repeat="e in getLista() track by $index"
+                ng-value="keyAsValue ? e['$id'] : e[show] ? e[show] : e">{{e[show] ? e[show] : e}}
         </option>
     </select>
 </div>
